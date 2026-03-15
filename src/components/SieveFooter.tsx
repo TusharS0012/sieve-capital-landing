@@ -1,15 +1,29 @@
+import { Link } from "react-router-dom";
+
 const footerLinks = [
   {
     title: "Research",
-    links: ["Methodology", "Publications", "Alpha Reports"],
+    links: [
+      { label: "Methodology", href: "/research" },
+      { label: "Publications", href: "/research" },
+      { label: "Alpha Reports", href: "/research" },
+    ],
   },
   {
     title: "Technology",
-    links: ["API Reference", "Architecture", "Infrastructure"],
+    links: [
+      { label: "API Reference", href: "/api" },
+      { label: "Architecture", href: "/technology" },
+      { label: "Infrastructure", href: "/technology" },
+    ],
   },
   {
-    title: "Legal",
-    links: ["Terms of Service", "Privacy Policy", "Compliance"],
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Careers", href: "/about" },
+      { label: "Contact", href: "/about" },
+    ],
   },
 ];
 
@@ -20,8 +34,10 @@ const SieveFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Brand */}
           <div className="md:col-span-4">
-            <p className="font-display text-xl text-signal mb-2">Sieve Capital</p>
-            <p className="text-dim text-xs font-mono-data leading-relaxed max-w-xs">
+            <Link to="/" className="font-display text-xl text-signal hover:text-cyber transition-colors">
+              Sieve Capital
+            </Link>
+            <p className="text-dim text-xs font-mono-data leading-relaxed max-w-xs mt-2">
               Quantitative signal intelligence. Collapsing the latency between global noise and
               institutional alpha.
             </p>
@@ -35,13 +51,13 @@ const SieveFooter = () => {
               </p>
               <ul className="space-y-2">
                 {group.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      to={link.href}
                       className="text-dim text-sm hover:text-signal transition-colors duration-200"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
