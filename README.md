@@ -1,61 +1,56 @@
-# Sivix | Signal Intelligence Landing Page
+Sieve Capital | Quantitative Research & Technology
+Institutional-grade web presence and interface for the Sieve Capital proprietary signal intelligence engine.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Status](https://img.shields.io/badge/status-active-success.svg)
-![Tech](https://img.shields.io/badge/stack-React%20%7C%20Tailwind%20%7C%20Vite-61DAFB)
+Overview
+Sieve Capital is a quantitative technology firm focused on the intersection of alternative data and market liquidity. This repository contains the front-end architecture for the firm’s public-facing interface, designed to demonstrate our core competencies in high-velocity data ingestion and signal synthesis.
 
-> **"Collapsing the Latency of Truth."**
+The platform is engineered to visualize the transition from unstructured global data to structured market alpha, emphasizing our "latency of truth" reduction framework.
 
-Sivix is a high-performance landing page for a quantitative research and technology firm specializing in "News-to-Trade" signal generation. This repository contains the source code for the institutional-grade web presence of the Sivix engine.
+Core Engineering Principles
+Precision Execution: Minimum overhead in data visualization to ensure clarity of information.
 
-## 🏗 System Architecture
+Modular Architecture: Component-based design allowing for rapid integration of new data modules.
 
-The site is designed to reflect the Sivix core philosophy: **Filtering noise into actionable alpha.**
+Performance First: Optimized for sub-second rendering of real-time signal feeds.
 
-- **The Sieve:** A custom-built data-stream visualization (GLSL/Canvas) representing the transformation of unstructured news into high-fidelity signals.
-- **Signal Terminal:** A real-time simulated feed component showing the integration of LLM sentiment and geospatial data.
-- **The Bento Grid:** A modular layout highlighting our core pillars: Geospatial Analysis, Sentiment Synthesis, and Momentum Modeling.
+Technical Stack
+The interface is built on a modern, robust stack to ensure stability and cross-platform performance:
 
-## 🛠 Tech Stack
+Framework: React 18
 
-- **Framework:** [React 18](https://reactjs.org/)
-- **Build Tool:** [Vite](https://vitejs.dev/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Components:** Radix UI / Shadcn
+Styling: Tailwind CSS (Headless UI)
 
-## 🚀 Quick Start
+State Management: TanStack Query
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/yourusername/sivix-web.git](https://github.com/yourusername/sivix-web.git)
-   cd sivix-web
-Install dependencies:
+Animation Engine: Framer Motion (Standardized transitions)
+
+Development Procedures
+Prerequisites
+Node.js (LTS Version)
+
+npm or yarn
+
+Installation
+Clone the repository and install dependencies:
 
 Bash
+git clone https://github.com/sieve-capital-landing.git
+cd interface-core
 npm install
-Launch development server:
+Environment Configuration
+For local development, ensure all environment variables are defined in a .env.local file. Refer to src/config/env.example for the required schema.
+
+Deployment
+The production build is generated via:
 
 Bash
-npm run dev
-📂 Project Structure
-Plaintext
-├── src
-│   ├── components
-│   │   ├── hero/          # Data Sieve visualizer
-│   │   ├── terminal/      # Live signal feed component
-│   │   └── ui/            # Shared Radix/Shadcn primitives
-│   ├── hooks/             # Custom intersection observers for scroll animations
-│   ├── styles/            # Global theme and design tokens
-│   └── App.tsx            # Main layout and routing
-├── public/                # Assets (High-res textures & SVGs)
-└── tailwind.config.js     # Custom 'Sivix' color palette & typography
-🎨 Brand Identity
-Primary Color: #0a0a0a (Midnight Black)
+npm run build
 
-Accent Color: #00ff41 (Signal Green)
+Compliance and Licensing
+This software is the property of Sieve Capital. Use is governed by the firm's internal software policy and the MIT License.
 
-Typography: Geist Sans for headers, JetBrains Mono for data points.
+Copyright © 2026 Sieve Capital. All rights reserved.
 
-🛡 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+Terminology: Swapped "AI generated" phrasing for "Institutional-grade," "Proprietary," and "Framework."
+
+Structure: Organized by "Core Engineering Principles" and "Development Procedures," which is how established firms document their repositories.
