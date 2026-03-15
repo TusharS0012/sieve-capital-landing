@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
+# Sivix | Signal Intelligence Landing Page
 
-## Project info
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
+![Tech](https://img.shields.io/badge/stack-React%20%7C%20Tailwind%20%7C%20Vite-61DAFB)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+> **"Collapsing the Latency of Truth."**
 
-## How can I edit this code?
+Sivix is a high-performance landing page for a quantitative research and technology firm specializing in "News-to-Trade" signal generation. This repository contains the source code for the institutional-grade web presence of the Sivix engine.
 
-There are several ways of editing your application.
+## 🏗 System Architecture
 
-**Use Lovable**
+The site is designed to reflect the Sivix core philosophy: **Filtering noise into actionable alpha.**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **The Sieve:** A custom-built data-stream visualization (GLSL/Canvas) representing the transformation of unstructured news into high-fidelity signals.
+- **Signal Terminal:** A real-time simulated feed component showing the integration of LLM sentiment and geospatial data.
+- **The Bento Grid:** A modular layout highlighting our core pillars: Geospatial Analysis, Sentiment Synthesis, and Momentum Modeling.
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠 Tech Stack
 
-**Use your preferred IDE**
+- **Framework:** [React 18](https://reactjs.org/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Components:** Radix UI / Shadcn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Quick Start
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/yourusername/sivix-web.git](https://github.com/yourusername/sivix-web.git)
+   cd sivix-web
+Install dependencies:
 
-Follow these steps:
+Bash
+npm install
+Launch development server:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Bash
 npm run dev
-```
+📂 Project Structure
+Plaintext
+├── src
+│   ├── components
+│   │   ├── hero/          # Data Sieve visualizer
+│   │   ├── terminal/      # Live signal feed component
+│   │   └── ui/            # Shared Radix/Shadcn primitives
+│   ├── hooks/             # Custom intersection observers for scroll animations
+│   ├── styles/            # Global theme and design tokens
+│   └── App.tsx            # Main layout and routing
+├── public/                # Assets (High-res textures & SVGs)
+└── tailwind.config.js     # Custom 'Sivix' color palette & typography
+🎨 Brand Identity
+Primary Color: #0a0a0a (Midnight Black)
 
-**Edit a file directly in GitHub**
+Accent Color: #00ff41 (Signal Green)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Typography: Geist Sans for headers, JetBrains Mono for data points.
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+🛡 License
+This project is licensed under the MIT License - see the LICENSE file for details.
