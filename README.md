@@ -1,56 +1,40 @@
-Sieve Capital | Quantitative Research & Technology
-Institutional-grade web presence and interface for the Sieve Capital proprietary signal intelligence engine.
+# Sieve Capital | Corporate Intelligence & Market Synthesis
 
-Overview
-Sieve Capital is a quantitative technology firm focused on the intersection of alternative data and market liquidity. This repository contains the front-end architecture for the firm’s public-facing interface, designed to demonstrate our core competencies in high-velocity data ingestion and signal synthesis.
+---
 
-The platform is engineered to visualize the transition from unstructured global data to structured market alpha, emphasizing our "latency of truth" reduction framework.
+### **Vision Statement**
+In modern capital markets, the speed of information has surpassed the speed of human comprehension. Sieve Capital was founded to bridge this gap. We operate at the intersection of alternative data and algorithmic execution, specializing in the reduction of "The Latency of Truth"—the critical window between a real-world event and its market realization.
 
-Core Engineering Principles
-Precision Execution: Minimum overhead in data visualization to ensure clarity of information.
+---
 
-Modular Architecture: Component-based design allowing for rapid integration of new data modules.
+### **The Sieve Methodology**
+Our firm is named after our core operational philosophy: the systematic separation of market noise from actionable signal. We process vast, unstructured datasets to identify high-amplitude events before they are reflected in global tickers.
 
-Performance First: Optimized for sub-second rendering of real-time signal feeds.
+#### **Core Intelligence Pillars**
+* **Geospatial Synthesis:** Real-time analysis of satellite imagery and physical supply chain movements.
+* **Unstructured Sentiment:** Large-scale processing of social media, regulatory filings, and localized news feeds.
+* **Macro Correlation:** Identifying the hidden links between non-traditional events and equity volatility.
+* **Momentum Modeling:** Precise algorithmic execution designed to capture alpha during high-velocity news breakouts.
 
-Technical Stack
-The interface is built on a modern, robust stack to ensure stability and cross-platform performance:
+---
 
-Framework: React 18
+### **Operational Focus**
+Sieve Capital does not chase the market; we monitor the conditions that create it. By leveraging a proprietary tech stack that ingestion-scales beyond human capacity, we provide our partners with a superior vantage point in high-stakes environments.
 
-Styling: Tailwind CSS (Headless UI)
+| Strategic Asset | Function |
+| :--- | :--- |
+| **Alternative Data Ingestion** | Sourcing non-traditional signals from government, social, and private sectors. |
+| **Sentiment Logic** | Proprietary LLM-based filtering to determine news veracity and impact. |
+| **Predictive Analytics** | Forecasting the price-impact magnitude of breaking world events. |
 
-State Management: TanStack Query
+---
 
-Animation Engine: Framer Motion (Standardized transitions)
+### **Institutional Standards**
+As an engineering-first collective, Sieve Capital maintains the highest standards of data integrity and system reliability. Our platforms are designed for institutional-grade stability, ensuring that our signal generation remains uninterrupted across all global trading sessions.
 
-Development Procedures
-Prerequisites
-Node.js (LTS Version)
+---
 
-npm or yarn
+### **Proprietary Notice**
+The contents of this repository and the associated internal frameworks are the exclusive intellectual property of **Sieve Capital**. This interface serves as a portal to our proprietary research environment. Unauthorized access or reproduction is strictly prohibited.
 
-Installation
-Clone the repository and install dependencies:
-
-Bash
-git clone https://github.com/sieve-capital-landing.git
-cd interface-core
-npm install
-Environment Configuration
-For local development, ensure all environment variables are defined in a .env.local file. Refer to src/config/env.example for the required schema.
-
-Deployment
-The production build is generated via:
-
-Bash
-npm run build
-
-Compliance and Licensing
-This software is the property of Sieve Capital. Use is governed by the firm's internal software policy and the MIT License.
-
-Copyright © 2026 Sieve Capital. All rights reserved.
-
-Terminology: Swapped "AI generated" phrasing for "Institutional-grade," "Proprietary," and "Framework."
-
-Structure: Organized by "Core Engineering Principles" and "Development Procedures," which is how established firms document their repositories.
+**Copyright © 2026 Sieve Capital. All rights reserved.**
