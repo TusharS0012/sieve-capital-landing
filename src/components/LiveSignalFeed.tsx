@@ -1,32 +1,32 @@
-import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 interface Signal {
   id: number;
   timestamp: string;
+  asset: string;
+  source: string;
   message: string;
-  type: "satellite" | "sentiment" | "macro" | "volatility";
+  direction: "Long" | "Short" | "Neutral";
+  confidence: string;
 }
 
 const SIGNALS: Omit<Signal, "id" | "timestamp">[] = [
-  { message: "SATELLITE_IMG_DECODED: PORT_ROTTERDAM -> TANKER_COUNT +12%", type: "satellite" },
-  { message: "SENTIMENT_SWEEP: $XAU -> BULLISH_DIVERGENCE (0.88)", type: "sentiment" },
-  { message: "MACRO_SHIFT: FED_FUND_FUTURES -> RATE_CUT_PROB 78.4%", type: "macro" },
-  { message: "SATELLITE DETECTED: PORT CONGESTION -> +2.4% VOLATILITY SIGNAL", type: "satellite" },
-  { message: "NLP_EXTRACT: $TSLA EARNINGS_CALL -> MARGIN_EXPANSION (0.92)", type: "sentiment" },
-  { message: "GEOSPATIAL: SUEZ_CANAL -> VESSEL_QUEUE 14 -> BRENT_LONG", type: "satellite" },
-  { message: "VOL_SURFACE: $SPY 0DTE SKEW -> TAIL_RISK_ELEVATED (z=2.4)", type: "volatility" },
-  { message: "ALT_DATA: CHINA_PMI_PROXY -> CONTRACTION_SIGNAL (48.2)", type: "macro" },
-  { message: "SENTIMENT_CLUSTER: CRYPTO_TWITTER -> $ETH ACCUMULATION (0.76)", type: "sentiment" },
-  { message: "DARK_POOL: $NVDA BLOCK_TRADE 2.4M SHARES @ $142.80", type: "volatility" },
-  { message: "SAT_THERMAL: CUSHING_OK -> CRUDE_INVENTORY -3.2M BBL", type: "satellite" },
-  { message: "NEWS_WIRE: ECB_LAGARDE -> HAWKISH_PIVOT -> EUR/USD SHORT", type: "macro" },
+  { asset: "BRENT", source: "Geospatial", message: "Port of Rotterdam tanker count +12%", direction: "Long", confidence: "0.94" },
+  { asset: "XAU", source: "Sentiment", message: "Bullish divergence across newswire corpus", direction: "Long", confidence: "0.88" },
+  { asset: "US 2Y", source: "Macro", message: "Fed funds futures imply 78.4% cut probability", direction: "Long", confidence: "0.81" },
+  { asset: "TSLA", source: "Language", message: "Earnings call signals margin expansion", direction: "Long", confidence: "0.92" },
+  { asset: "SPY", source: "Volatility", message: "Zero-day skew indicates elevated tail risk", direction: "Short", confidence: "0.76" },
+  { asset: "CNY", source: "Macro", message: "China PMI proxy indicates contraction at 48.2", direction: "Short", confidence: "0.73" },
+  { asset: "ETH", source: "Sentiment", message: "Accumulation cluster detected in social corpus", direction: "Long", confidence: "0.76" },
+  { asset: "NVDA", source: "Microstructure", message: "Dark pool block of 2.4M shares at $142.80", direction: "Neutral", confidence: "0.68" },
+  { asset: "WTI", source: "Geospatial", message: "Cushing thermal imagery implies -3.2M bbl", direction: "Long", confidence: "0.89" },
+  { asset: "EUR/USD", source: "Language", message: "ECB commentary reads hawkish versus consensus", direction: "Short", confidence: "0.84" },
 ];
 
 function getTimestamp(): string {
   const now = new Date();
-  const ms = String(now.getMilliseconds()).padStart(2, "0").slice(0, 2);
-  return `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${ms}`;
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
 }
 
 const LiveSignalFeed = () => {
@@ -34,66 +34,69 @@ const LiveSignalFeed = () => {
   const idRef = useRef(0);
 
   useEffect(() => {
-    // Initial signals
-    const initial: Signal[] = [];
-    for (let i = 0; i < 5; i++) {
-      const raw = SIGNALS[i % SIGNALS.length];
-      initial.push({ ...raw, id: idRef.current++, timestamp: getTimestamp() });
-    }
-    setSignals(initial);
+    setSignals(
+      Array.from({ length: 6 }, (_, i) => ({
+        ...SIGNALS[i % SIGNALS.length],
+        id: idRef.current++,
+        timestamp: getTimestamp(),
+      })),
+    );
 
     const interval = setInterval(() => {
       const raw = SIGNALS[Math.floor(Math.random() * SIGNALS.length)];
-      const newSignal: Signal = { ...raw, id: idRef.current++, timestamp: getTimestamp() };
-      setSignals((prev) => [newSignal, ...prev].slice(0, 12));
-    }, 2800);
+      setSignals((prev) => [{ ...raw, id: idRef.current++, timestamp: getTimestamp() }, ...prev].slice(0, 6));
+    }, 3200);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="py-24">
+    <section className="py-20 md:py-28">
       <div className="container">
-        <div className="mb-8">
-          <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-3">
-            Live Signal Feed
-          </p>
-          <h2 className="font-display text-2xl md:text-3xl text-signal">
-            Real-Time Intelligence Stream
-          </h2>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+          <div className="max-w-xl">
+            <p className="kicker mb-4">Signal feed</p>
+            <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
+              A representative view of the intelligence stream
+            </h2>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-bronze" />
+            <span className="text-[11px] uppercase tracking-[0.14em] text-soft">Live · delayed sample</span>
+          </div>
         </div>
 
-        <div className="surface-glass rounded-lg overflow-hidden">
-          {/* Header bar */}
-          <div className="flex items-center justify-between px-4 py-2 border-b border-border">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-cyber animate-pulse" />
-              <span className="font-mono-data text-xs text-dim">SIEVE_TERMINAL v4.2.1</span>
-            </div>
-            <span className="font-mono-data text-xs text-dim">SIGNALS: {signals.length} ACTIVE</span>
-          </div>
-
-          {/* Feed */}
-          <div className="h-[320px] overflow-hidden px-4 py-3">
-            <AnimatePresence initial={false}>
-              {signals.map((signal) => (
-                <motion.div
-                  key={signal.id}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  className="py-1.5 font-mono-data text-xs md:text-sm flex gap-2 border-b border-border/30 last:border-0"
-                >
-                  <span className="text-dim shrink-0">[{signal.timestamp}]</span>
-                  <span className={signal.type === "satellite" ? "text-cyber" : signal.type === "sentiment" ? "text-foreground" : signal.type === "macro" ? "text-muted-foreground" : "text-cyber/70"}>
-                    {signal.message}
-                  </span>
-                </motion.div>
+        <div className="panel overflow-x-auto">
+          <table className="w-full text-sm min-w-[720px]">
+            <thead>
+              <tr className="border-b border-border text-left">
+                {["Time", "Asset", "Source", "Observation", "View", "Confidence"].map((h) => (
+                  <th key={h} className="px-5 py-3 text-[10px] uppercase tracking-[0.14em] text-soft font-semibold">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {signals.map((s) => (
+                <tr key={s.id} className="border-b border-border last:border-0">
+                  <td className="px-5 py-4 font-mono-data text-xs text-soft whitespace-nowrap">{s.timestamp}</td>
+                  <td className="px-5 py-4 font-medium text-ink whitespace-nowrap">{s.asset}</td>
+                  <td className="px-5 py-4 text-soft text-xs whitespace-nowrap">{s.source}</td>
+                  <td className="px-5 py-4 text-soft">{s.message}</td>
+                  <td className={`px-5 py-4 text-xs font-medium ${s.direction === "Short" ? "text-destructive" : s.direction === "Long" ? "text-bronze" : "text-soft"}`}>
+                    {s.direction}
+                  </td>
+                  <td className="px-5 py-4 font-mono-data text-ink text-xs">{s.confidence}</td>
+                </tr>
               ))}
-            </AnimatePresence>
-          </div>
+            </tbody>
+          </table>
         </div>
+        <p className="text-[11px] text-soft mt-4 max-w-2xl">
+          Illustrative sample of engine output. Not investment advice and not a recommendation to
+          transact in any security.
+        </p>
       </div>
     </section>
   );
