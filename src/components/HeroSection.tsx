@@ -1,66 +1,53 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import DataSieveCanvas from "./DataSieveCanvas";
+
+const stats = [
+  { value: "99.2%", label: "Noise reduction" },
+  { value: "14ms", label: "Insight latency" },
+  { value: "400TB", label: "Data ingested daily" },
+];
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Canvas background */}
-      <div className="absolute inset-0">
-        <DataSieveCanvas />
-      </div>
-
-      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 py-24">
-        {/* Left: Copy */}
-        <div className="lg:col-span-6 flex flex-col justify-center">
-          <motion.div
-            initial={{ clipPath: "inset(50% 50% 50% 50%)" }}
-            animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-6">
-              Signal Intelligence Engine
-            </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-signal leading-[1.05] mb-6">
-              Collapsing the Latency of Truth.
+    <section className="pt-32 pb-20 md:pt-44 md:pb-28">
+      <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end"
+        >
+          <div className="lg:col-span-7">
+            <p className="kicker mb-6">Signal Intelligence Engine</p>
+            <h1 className="font-display text-4xl md:text-6xl leading-[1.05] text-ink mb-6">
+              Collapsing the latency of truth.
             </h1>
-            <p className="text-dim text-base md:text-lg max-w-lg leading-relaxed mb-8">
-              Sivix is a signal intelligence engine that sieves global news, satellite feeds, 
-              and alternative data to generate high-alpha trading signals in real-time.
+            <p className="text-soft text-base md:text-lg leading-relaxed max-w-xl">
+              Sieve Capital sieves global news, satellite feeds and alternative data to
+              generate high-conviction market signals for institutional portfolios.
             </p>
-
-            <div className="flex flex-wrap gap-4">
-              <Button variant="cyber" size="lg">
-                Explore the Engine
+            <div className="flex flex-wrap gap-3 mt-9">
+              <Button asChild variant="cyber" size="lg">
+                <Link to="/technology">Explore the engine</Link>
               </Button>
-              <Button variant="cyber-outline" size="lg">
-                View Documentation
+              <Button asChild variant="cyber-outline" size="lg">
+                <Link to="/api">View documentation</Link>
               </Button>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Stats row */}
-          <motion.div
-            className="mt-16 grid grid-cols-3 gap-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {[
-              { value: "99.2%", label: "Noise Reduction" },
-              { value: "14ms", label: "Insight Latency" },
-              { value: "400TB", label: "Daily Data Ingested" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-mono-data text-cyber text-2xl md:text-3xl">{stat.value}</p>
-                <p className="text-dim text-xs mt-1 uppercase tracking-wider">{stat.label}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Right: Canvas fills the background, so this is spacer */}
-        <div className="hidden lg:block lg:col-span-6" />
+          <div className="lg:col-span-5">
+            <div className="border-t border-border">
+              {stats.map((s) => (
+                <div key={s.label} className="flex items-baseline justify-between py-5 border-b border-border">
+                  <span className="text-soft text-xs uppercase tracking-[0.14em]">{s.label}</span>
+                  <span className="font-display text-3xl text-ink font-mono-data">{s.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

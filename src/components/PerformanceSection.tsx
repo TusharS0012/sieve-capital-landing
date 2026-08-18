@@ -16,88 +16,93 @@ const monthlyReturns = [
 ];
 
 const performanceStats = [
-  { label: "Annualized Return", value: "34.2%", sub: "Net of fees" },
-  { label: "Sharpe Ratio", value: "2.84", sub: "Since inception" },
-  { label: "Max Drawdown", value: "-3.8%", sub: "Rolling 36 months" },
-  { label: "Win Rate", value: "67.4%", sub: "Signal accuracy" },
-  { label: "Sortino Ratio", value: "4.12", sub: "Downside risk adjusted" },
-  { label: "Calmar Ratio", value: "9.0", sub: "Return / max drawdown" },
+  { label: "Annualised return", value: "34.2%", sub: "Net of fees" },
+  { label: "Sharpe ratio", value: "2.84", sub: "Since inception" },
+  { label: "Maximum drawdown", value: "-3.8%", sub: "Rolling 36 months" },
+  { label: "Win rate", value: "67.4%", sub: "Signal accuracy" },
+  { label: "Sortino ratio", value: "4.12", sub: "Downside adjusted" },
+  { label: "Calmar ratio", value: "9.0", sub: "Return / drawdown" },
 ];
 
 const PerformanceSection = () => {
   const maxVal = Math.max(...monthlyReturns.map((r) => Math.abs(r.value)));
 
   return (
-    <section className="py-24 border-t border-border">
+    <section className="py-20 md:py-28 border-t border-border bg-secondary/40">
       <div className="container">
-        <div className="mb-12">
-          <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-3">
-            Track Record
-          </p>
-          <h2 className="font-display text-2xl md:text-3xl text-signal">
-            Signal Performance Metrics
+        <div className="max-w-2xl mb-14">
+          <p className="kicker mb-4">Track record</p>
+          <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight mb-4">
+            Signal performance metrics
           </h2>
-          <p className="text-dim text-sm mt-2 max-w-lg">
-            Simulated performance based on live signal data. Past performance does not guarantee future results. 
-            All figures are gross of transaction costs unless stated otherwise.
+          <p className="text-soft text-sm leading-relaxed">
+            Simulated performance based on live signal data. Past performance does not guarantee
+            future results. All figures are gross of transaction costs unless stated otherwise.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Chart */}
-          <div className="lg:col-span-7 surface-glass rounded-lg p-6">
-            <div className="flex items-center justify-between mb-6">
-              <span className="font-mono-data text-xs text-dim">MONTHLY SIGNAL RETURNS — 2025</span>
-              <span className="font-mono-data text-xs text-cyber">NET: +21.9%</span>
+          <div className="lg:col-span-7 panel p-6 md:p-8">
+            <div className="flex items-baseline justify-between mb-8">
+              <span className="text-[10px] uppercase tracking-[0.14em] text-soft font-semibold">
+                Monthly signal returns — 2025
+              </span>
+              <span className="font-mono-data text-sm text-ink">Net +21.9%</span>
             </div>
-            <div className="flex items-end gap-2 h-48">
+            <div className="flex items-end gap-2 h-52 border-b border-border">
               {monthlyReturns.map((r, i) => {
                 const height = (Math.abs(r.value) / maxVal) * 100;
                 const isPositive = r.value >= 0;
                 return (
                   <motion.div
                     key={i}
-                    className="flex-1 flex flex-col items-center gap-1"
+                    className="flex-1 flex flex-col items-center gap-1.5 h-full justify-end"
                     initial={{ opacity: 0, scaleY: 0 }}
                     whileInView={{ opacity: 1, scaleY: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.05, duration: 0.4 }}
+                    transition={{ delay: i * 0.04, duration: 0.4 }}
                     style={{ transformOrigin: "bottom" }}
                   >
-                    <span className="font-mono-data text-[9px] text-dim">
+                    <span className="font-mono-data text-[9px] text-soft">
                       {isPositive ? "+" : ""}{r.value}%
                     </span>
                     <div
-                      className={`w-full rounded-sm ${isPositive ? "bg-cyber/60" : "bg-destructive/40"}`}
-                      style={{ height: `${height}%`, minHeight: "4px" }}
+                      className={isPositive ? "w-full bg-primary/85" : "w-full bg-destructive/60"}
+                      style={{ height: `${height}%`, minHeight: "3px" }}
                     />
-                    <span className="font-mono-data text-[9px] text-dim">{r.month}</span>
                   </motion.div>
                 );
               })}
             </div>
+            <div className="flex gap-2 mt-2">
+              {monthlyReturns.map((r) => (
+                <span key={r.month} className="flex-1 text-center font-mono-data text-[9px] text-soft">
+                  {r.month}
+                </span>
+              ))}
+            </div>
           </div>
 
-          {/* Stats */}
-          <div className="lg:col-span-5 surface-glass rounded-lg p-6">
-            <span className="font-mono-data text-xs text-dim mb-6 block">KEY METRICS</span>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+          <div className="lg:col-span-5 panel p-6 md:p-8">
+            <span className="text-[10px] uppercase tracking-[0.14em] text-soft font-semibold block mb-6">
+              Key metrics
+            </span>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-7">
               {performanceStats.map((stat) => (
                 <div key={stat.label}>
-                  <p className="font-mono-data text-cyber text-xl">{stat.value}</p>
-                  <p className="text-signal text-xs font-medium mt-0.5">{stat.label}</p>
-                  <p className="text-dim text-[10px]">{stat.sub}</p>
+                  <p className="font-display text-2xl text-ink font-mono-data">{stat.value}</p>
+                  <p className="text-ink text-xs font-medium mt-1">{stat.label}</p>
+                  <p className="text-soft text-[11px]">{stat.sub}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Disclaimer */}
-        <p className="font-mono-data text-[9px] text-dim mt-6 max-w-2xl">
-          DISCLAIMER: Simulated performance results have inherent limitations. No representation is being made 
-          that any account will achieve similar profits or losses. Hypothetical trading does not involve financial 
-          risk and cannot account for all factors affecting actual trading.
+        <p className="text-[11px] text-soft mt-6 max-w-3xl leading-relaxed">
+          Disclaimer: simulated performance results have inherent limitations. No representation is
+          being made that any account will achieve similar profits or losses. Hypothetical trading
+          does not involve financial risk and cannot account for all factors affecting actual trading.
         </p>
       </div>
     </section>
