@@ -18,7 +18,7 @@ const footerLinks = [
     ],
   },
   {
-    title: "Company",
+    title: "Firm",
     links: [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/about" },
@@ -29,33 +29,26 @@ const footerLinks = [
 
 const SieveFooter = () => {
   return (
-    <footer className="border-t border-border py-16">
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Brand */}
-          <div className="md:col-span-4">
-            <Link to="/" className="font-display text-xl text-signal hover:text-cyber transition-colors">
+    <footer className="border-t border-border bg-secondary/40">
+      <div className="container py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          <div className="md:col-span-5">
+            <Link to="/" className="font-display text-2xl text-ink">
               Sieve Capital
             </Link>
-            <p className="text-dim text-xs font-mono-data leading-relaxed max-w-xs mt-2">
-              Quantitative signal intelligence. Collapsing the latency between global noise and
-              institutional alpha.
+            <p className="text-soft text-sm leading-relaxed max-w-sm mt-3">
+              Quantitative signal intelligence for institutional investors. Collapsing the
+              latency between global information and considered decisions.
             </p>
           </div>
 
-          {/* Links */}
           {footerLinks.map((group) => (
             <div key={group.title} className="md:col-span-2">
-              <p className="font-mono-data text-xs text-cyber uppercase tracking-widest mb-4">
-                {group.title}
-              </p>
-              <ul className="space-y-2">
+              <p className="kicker mb-4">{group.title}</p>
+              <ul className="space-y-2.5">
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      to={link.href}
-                      className="text-dim text-sm hover:text-signal transition-colors duration-200"
-                    >
+                    <Link to={link.href} className="text-soft text-sm hover:text-ink transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -65,12 +58,12 @@ const SieveFooter = () => {
           ))}
         </div>
 
-        <div className="mt-16 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-mono-data text-[10px] text-dim">
-            © 2026 SIEVE CAPITAL LTD. ALL RIGHTS RESERVED.
+        <div className="mt-14 pt-6 border-t border-border grid grid-cols-1 md:grid-cols-2 gap-4">
+          <p className="text-[11px] text-soft">
+            © 2026 Sieve Capital Ltd. All rights reserved. Registered in England & Wales.
           </p>
-          <p className="font-mono-data text-[10px] text-dim">
-            SYS_STATUS: OPERATIONAL | UPTIME: 99.97% | NODE: LDN-GRW-01
+          <p className="text-[11px] text-soft md:text-right">
+            SOC 2 Type II certified · For professional investors only
           </p>
         </div>
       </div>
