@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,51 +6,52 @@
 
 @layer base {
   :root {
-    --background: 0 0% 2%;
-    --foreground: 210 40% 98%;
+    /* Institutional light palette: warm paper, deep navy ink, bronze accent */
+    --background: 40 25% 98%;
+    --foreground: 215 45% 12%;
 
-    --card: 222 47% 6%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 45% 12%;
 
-    --popover: 222 47% 6%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 45% 12%;
 
-    --primary: 135 100% 50%;
-    --primary-foreground: 0 0% 2%;
+    --primary: 215 55% 16%;
+    --primary-foreground: 40 25% 98%;
 
-    --secondary: 222 47% 8%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 38 22% 95%;
+    --secondary-foreground: 215 45% 12%;
 
-    --muted: 217 33% 10%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 38 20% 94%;
+    --muted-foreground: 215 14% 42%;
 
-    --accent: 135 100% 50%;
-    --accent-foreground: 0 0% 2%;
+    --accent: 24 55% 40%;
+    --accent-foreground: 40 25% 98%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 4 62% 42%;
+    --destructive-foreground: 40 25% 98%;
 
-    --border: 220 13% 15%;
-    --input: 220 13% 15%;
-    --ring: 135 100% 50%;
+    --border: 33 14% 87%;
+    --input: 33 14% 87%;
+    --ring: 215 55% 16%;
 
-    --radius: 0.5rem;
+    --radius: 0.125rem;
 
-    --cyber-green: 135 100% 50%;
-    --signal-white: 210 40% 98%;
-    --dim-white: 210 40% 98%;
-    --surface: 222 47% 6%;
-    --surface-border-top: 0 0% 100%;
-    --surface-border-side: 0 0% 100%;
+    --ink: 215 45% 12%;
+    --ink-soft: 215 20% 34%;
+    --paper: 40 25% 98%;
+    --paper-raised: 0 0% 100%;
+    --rule: 33 14% 87%;
+    --bronze: 24 55% 40%;
 
-    --sidebar-background: 0 0% 3%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 15%;
-    --sidebar-ring: 135 100% 50%;
+    --sidebar-background: 40 25% 98%;
+    --sidebar-foreground: 215 45% 12%;
+    --sidebar-primary: 215 55% 16%;
+    --sidebar-primary-foreground: 40 25% 98%;
+    --sidebar-accent: 38 22% 95%;
+    --sidebar-accent-foreground: 215 45% 12%;
+    --sidebar-border: 33 14% 87%;
+    --sidebar-ring: 215 55% 16%;
   }
 }
 
@@ -61,6 +62,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: 'Archivo', system-ui, sans-serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -68,109 +70,60 @@
 }
 
 @layer utilities {
-  .font-mono-data {
-    font-family: 'JetBrains Mono', monospace;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: -0.02em;
-  }
-
   .font-display {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+
+  .font-mono-data {
+    font-family: 'Archivo', system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+  }
+
+  .kicker {
+    font-family: 'Archivo', system-ui, sans-serif;
+    font-size: 0.6875rem;
     font-weight: 600;
-    letter-spacing: -0.04em;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: hsl(var(--bronze));
   }
 
-  .surface-glass {
-    background: hsl(var(--surface));
-    border-top: 1px solid hsl(var(--surface-border-top) / 0.1);
-    border-left: 0.5px solid hsl(var(--surface-border-side) / 0.03);
-    border-right: 0.5px solid hsl(var(--surface-border-side) / 0.03);
-    border-bottom: 1px solid transparent;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 0 1px rgba(0,0,0,1), 0 20px 40px -20px rgba(0,0,0,0.5);
+  .text-ink {
+    color: hsl(var(--ink));
   }
 
-  .text-cyber {
-    color: hsl(var(--cyber-green));
+  .text-soft {
+    color: hsl(var(--ink-soft));
   }
 
-  .text-dim {
-    color: hsl(var(--dim-white) / 0.4);
+  .text-bronze {
+    color: hsl(var(--bronze));
   }
 
-  .text-signal {
-    color: hsl(var(--signal-white));
+  .bg-paper-raised {
+    background-color: hsl(var(--paper-raised));
   }
 
-  .bg-cyber {
-    background-color: hsl(var(--cyber-green));
+  .rule-top {
+    border-top: 1px solid hsl(var(--rule));
   }
 
-  .border-cyber {
-    border-color: hsl(var(--cyber-green));
+  .panel {
+    background-color: hsl(var(--paper-raised));
+    border: 1px solid hsl(var(--rule));
   }
 
-  .glow-cyber {
-    box-shadow: 0 0 20px hsl(var(--cyber-green) / 0.15), 0 0 40px hsl(var(--cyber-green) / 0.05);
+  .link-underline {
+    background-image: linear-gradient(hsl(var(--bronze)), hsl(var(--bronze)));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
   }
-
-  .clip-reveal {
-    animation: clipReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-}
-
-@keyframes clipReveal {
-  from {
-    clip-path: inset(50% 50% 50% 50%);
-  }
-  to {
-    clip-path: inset(0% 0% 0% 0%);
-  }
-}
-
-@keyframes terminalSlide {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse-green {
-  0%, 100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes sarSweep {
-  0% {
-    left: 0%;
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  95% {
-    opacity: 1;
-  }
-  100% {
-    left: 100%;
-    opacity: 0;
-  }
-}
-
-@keyframes radarPing {
-  0% {
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(2.5);
-    opacity: 0;
+  .link-underline:hover {
+    background-size: 100% 1px;
   }
 }
