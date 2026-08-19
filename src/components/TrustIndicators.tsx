@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const metrics = [
-  { value: "$2.4B+", label: "Assets under signal coverage" },
-  { value: "147", label: "Alternative data sources" },
-  { value: "40+", label: "Connected exchanges" },
-  { value: "12", label: "Global points of presence" },
+  { value: "₹18,400 Cr", label: "Assets under signal coverage" },
+  { value: "112", label: "India & global data sources" },
+  { value: "4", label: "Connected venues (NSE, BSE, MCX, NCDEX)" },
+  { value: "3", label: "Colocation points of presence" },
 ];
 
 const TrustIndicators = () => {
@@ -15,8 +15,8 @@ const TrustIndicators = () => {
           <div className="lg:col-span-4">
             <p className="kicker mb-3">Institutional grade</p>
             <p className="text-soft text-sm leading-relaxed max-w-sm">
-              Trusted by quantitative hedge funds, proprietary trading firms and sovereign
-              wealth research desks.
+              Trusted by Indian AIFs, PMS managers, proprietary desks and mutual fund
+              research teams.
             </p>
           </div>
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
