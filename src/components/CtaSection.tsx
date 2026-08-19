@@ -29,8 +29,8 @@ const CtaSection = () => {
               Ready to collapse the latency?
             </h2>
             <p className="text-primary-foreground/70 text-sm md:text-base leading-relaxed max-w-lg">
-              Sieve is available to qualified institutional investors, proprietary trading
-              firms and research desks. Request access to our API terminal and signal
+              Sieve is available to SEBI-registered AIFs, PMS managers, mutual funds, proprietary
+              desks and family offices in India. Request access to our API terminal and signal
               intelligence platform.
             </p>
           </div>
@@ -40,7 +40,7 @@ const CtaSection = () => {
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
                 <Input
                   type="email"
-                  placeholder="institutional@email.com"
+                  placeholder="name@yourfirm.in"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="h-12 rounded-none bg-transparent border-primary-foreground/25 text-primary-foreground placeholder:text-primary-foreground/40"
@@ -62,7 +62,7 @@ const CtaSection = () => {
               </div>
             )}
             <p className="text-[11px] text-primary-foreground/50 mt-5 tracking-wide">
-              SOC 2 Type II certified · NDA required · Minimum AUM $50M
+              SOC 2 Type II certified · NDA required · Minimum AUM ₹100 Cr
             </p>
           </div>
         </motion.div>
