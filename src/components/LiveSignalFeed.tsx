@@ -11,16 +11,18 @@ interface Signal {
 }
 
 const SIGNALS: Omit<Signal, "id" | "timestamp">[] = [
-  { asset: "BRENT", source: "Geospatial", message: "Port of Rotterdam tanker count +12%", direction: "Long", confidence: "0.94" },
-  { asset: "XAU", source: "Sentiment", message: "Bullish divergence across newswire corpus", direction: "Long", confidence: "0.88" },
-  { asset: "US 2Y", source: "Macro", message: "Fed funds futures imply 78.4% cut probability", direction: "Long", confidence: "0.81" },
-  { asset: "TSLA", source: "Language", message: "Earnings call signals margin expansion", direction: "Long", confidence: "0.92" },
-  { asset: "SPY", source: "Volatility", message: "Zero-day skew indicates elevated tail risk", direction: "Short", confidence: "0.76" },
-  { asset: "CNY", source: "Macro", message: "China PMI proxy indicates contraction at 48.2", direction: "Short", confidence: "0.73" },
-  { asset: "ETH", source: "Sentiment", message: "Accumulation cluster detected in social corpus", direction: "Long", confidence: "0.76" },
-  { asset: "NVDA", source: "Microstructure", message: "Dark pool block of 2.4M shares at $142.80", direction: "Neutral", confidence: "0.68" },
-  { asset: "WTI", source: "Geospatial", message: "Cushing thermal imagery implies -3.2M bbl", direction: "Long", confidence: "0.89" },
-  { asset: "EUR/USD", source: "Language", message: "ECB commentary reads hawkish versus consensus", direction: "Short", confidence: "0.84" },
+  { asset: "NIFTY", source: "Derivatives", message: "Weekly OI shift: call writing unwound above 24,800", direction: "Long", confidence: "0.91" },
+  { asset: "BANKNIFTY", source: "Flows", message: "FII index futures long ratio at 62.4%", direction: "Long", confidence: "0.87" },
+  { asset: "RELIANCE", source: "Filings", message: "NSE announcement: retail arm capex revision", direction: "Long", confidence: "0.89" },
+  { asset: "HDFCBANK", source: "Microstructure", message: "Block deal 42.6L shares on BSE at ₹1,684", direction: "Neutral", confidence: "0.71" },
+  { asset: "TCS", source: "Language", message: "Earnings call reads cautious on BFSI discretionary", direction: "Short", confidence: "0.83" },
+  { asset: "INDIA VIX", source: "Volatility", message: "Expiry-day skew implies elevated gamma risk", direction: "Short", confidence: "0.78" },
+  { asset: "TATAMOTORS", source: "Macro", message: "Monthly wholesale dispatches beat consensus", direction: "Long", confidence: "0.86" },
+  { asset: "IPO — SME", source: "Primary", message: "Grey market premium cooling on day-2 subscription", direction: "Short", confidence: "0.74" },
+  { asset: "USD/INR", source: "Macro", message: "RBI intervention footprint detected near 87.20", direction: "Neutral", confidence: "0.80" },
+  { asset: "SBIN", source: "Flows", message: "DII accumulation cluster across three sessions", direction: "Long", confidence: "0.85" },
+  { asset: "GOLD (MCX)", source: "Global", message: "US CPI print lifts safe-haven bid into India open", direction: "Long", confidence: "0.82" },
+  { asset: "INFY", source: "Global", message: "Nasdaq IT drawdown implies gap-down carry-over", direction: "Short", confidence: "0.79" },
 ];
 
 function getTimestamp(): string {
@@ -57,7 +59,7 @@ const LiveSignalFeed = () => {
           <div className="max-w-xl">
             <p className="kicker mb-4">Signal feed</p>
             <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
-              A representative view of the intelligence stream
+              A representative view of the Indian market intelligence stream
             </h2>
           </div>
           <div className="flex items-center gap-2">
@@ -95,7 +97,7 @@ const LiveSignalFeed = () => {
         </div>
         <p className="text-[11px] text-soft mt-4 max-w-2xl">
           Illustrative sample of engine output. Not investment advice and not a recommendation to
-          transact in any security.
+          buy or sell any security. Securities investments are subject to market risks.
         </p>
       </div>
     </section>

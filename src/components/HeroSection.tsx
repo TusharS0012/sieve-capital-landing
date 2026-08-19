@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const stats = [
   { value: "99.2%", label: "Noise reduction" },
   { value: "14ms", label: "Insight latency" },
-  { value: "400TB", label: "Data ingested daily" },
+  { value: "1,900+", label: "NSE & BSE symbols tracked" },
 ];
 
 const HeroSection = () => {
@@ -19,13 +19,14 @@ const HeroSection = () => {
           className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end"
         >
           <div className="lg:col-span-7">
-            <p className="kicker mb-6">Signal Intelligence Engine</p>
+            <p className="kicker mb-6">India Signal Intelligence Engine</p>
             <h1 className="font-display text-4xl md:text-6xl leading-[1.05] text-ink mb-6">
               Collapsing the latency of truth.
             </h1>
             <p className="text-soft text-base md:text-lg leading-relaxed max-w-xl">
-              Sieve Capital sieves global news, satellite feeds and alternative data to
-              generate high-conviction market signals for institutional portfolios.
+              Sieve Capital sieves Indian market data — NSE and BSE cash, F&amp;O, IPO and
+              SME filings, RBI and SEBI disclosures — alongside global macro news, to
+              generate high-conviction signals for Indian institutional portfolios.
             </p>
             <div className="flex flex-wrap gap-3 mt-9">
               <Button asChild variant="cyber" size="lg">

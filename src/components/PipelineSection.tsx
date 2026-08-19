@@ -4,22 +4,22 @@ const steps = [
   {
     step: "01",
     title: "Ingest",
-    desc: "400TB of daily alternative data — satellite imagery, social feeds, news wires, dark pool prints and macro indicators.",
+    desc: "NSE and BSE tick data, F&O open interest, bulk and block deals, FII/DII flows, exchange filings, GST and port throughput proxies, plus global macro wires.",
   },
   {
     step: "02",
     title: "Process",
-    desc: "Proprietary language models extract entities, classify events and score sentiment across 147 sources in 22 languages.",
+    desc: "Language models extract entities, classify events and score sentiment across 112 sources in English, Hindi, Gujarati, Tamil and Marathi business media.",
   },
   {
     step: "03",
     title: "Signal",
-    desc: "Multi-modal fusion correlates geospatial, linguistic and market microstructure data into high-confidence signals.",
+    desc: "Fusion correlates filings, flows, options positioning and global cues into high-confidence Nifty, Bank Nifty and single-stock signals.",
   },
   {
     step: "04",
     title: "Execute",
-    desc: "Smart order routing with real-time Monte Carlo risk management. 14 milliseconds from detection to execution.",
+    desc: "Exchange-approved algo routing to NSE and BSE with real-time risk checks. 14 milliseconds from detection to order.",
   },
 ];
 
@@ -30,7 +30,7 @@ const PipelineSection = () => {
         <div className="max-w-2xl mb-14">
           <p className="kicker mb-4">The process</p>
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
-            From raw information to institutional alpha in fourteen milliseconds
+            From Indian market data to institutional alpha in fourteen milliseconds
           </h2>
         </div>
 

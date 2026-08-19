@@ -16,10 +16,11 @@ const monthlyReturns = [
 ];
 
 const performanceStats = [
-  { label: "Annualised return", value: "34.2%", sub: "Net of fees" },
+  { label: "Annualised return", value: "34.2%", sub: "Net of fees, STT & charges" },
   { label: "Sharpe ratio", value: "2.84", sub: "Since inception" },
   { label: "Maximum drawdown", value: "-3.8%", sub: "Rolling 36 months" },
   { label: "Win rate", value: "67.4%", sub: "Signal accuracy" },
+
   { label: "Sortino ratio", value: "4.12", sub: "Downside adjusted" },
   { label: "Calmar ratio", value: "9.0", sub: "Return / drawdown" },
 ];
@@ -36,8 +37,9 @@ const PerformanceSection = () => {
             Signal performance metrics
           </h2>
           <p className="text-soft text-sm leading-relaxed">
-            Simulated performance based on live signal data. Past performance does not guarantee
-            future results. All figures are gross of transaction costs unless stated otherwise.
+            Simulated performance based on live signal data across NSE cash and F&O segments. Past
+            performance does not guarantee future results. Figures are gross of transaction costs,
+            STT and statutory levies unless stated otherwise.
           </p>
         </div>
 
@@ -45,7 +47,7 @@ const PerformanceSection = () => {
           <div className="lg:col-span-7 panel p-6 md:p-8">
             <div className="flex items-baseline justify-between mb-8">
               <span className="text-[10px] uppercase tracking-[0.14em] text-soft font-semibold">
-                Monthly signal returns — 2025
+                Monthly signal returns — FY 2025-26
               </span>
               <span className="font-mono-data text-sm text-ink">Net +21.9%</span>
             </div>
@@ -102,7 +104,8 @@ const PerformanceSection = () => {
         <p className="text-[11px] text-soft mt-6 max-w-3xl leading-relaxed">
           Disclaimer: simulated performance results have inherent limitations. No representation is
           being made that any account will achieve similar profits or losses. Hypothetical trading
-          does not involve financial risk and cannot account for all factors affecting actual trading.
+          does not involve financial risk and cannot account for all factors affecting actual
+          trading, including impact cost, circuit limits and expiry-day liquidity on Indian venues.
         </p>
       </div>
     </section>

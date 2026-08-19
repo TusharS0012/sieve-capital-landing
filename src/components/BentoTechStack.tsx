@@ -2,36 +2,36 @@ import { motion } from "framer-motion";
 
 const pillars = [
   {
-    label: "Geospatial analysis",
-    title: "Satellite-grade intelligence",
-    desc: "Real-time processing of synthetic aperture radar, thermal and optical satellite imagery. We track port congestion, crude storage levels and agricultural yields across more than 12,000 global coordinates.",
+    label: "Primary & filings intelligence",
+    title: "Exchange disclosure engine",
+    desc: "Continuous parsing of NSE and BSE corporate announcements, SEBI circulars, DRHP and RHP filings, shareholding patterns, bulk and block deal sheets, plus mainboard and SME IPO subscription data.",
     facts: [
-      { k: "Coordinates monitored", v: "12,000+" },
-      { k: "Imagery refresh", v: "Hourly" },
+      { k: "Filings parsed daily", v: "42,000" },
+      { k: "Announcement lag", v: "Sub-second" },
     ],
   },
   {
     label: "Language processing",
-    title: "Financial-domain models",
-    desc: "Transformer models fine-tuned on a financial corpus perform entity extraction, sentiment scoring and event classification across 147 sources in 22 languages.",
+    title: "India-tuned financial models",
+    desc: "Transformer models fine-tuned on an Indian financial corpus score earnings calls, management commentary and business media in English, Hindi, Gujarati, Tamil and Marathi, alongside global newswires.",
     facts: [
-      { k: "Languages", v: "22" },
-      { k: "Documents daily", v: "2.4B" },
+      { k: "Languages", v: "5 + English wires" },
+      { k: "Sources", v: "112" },
     ],
   },
   {
     label: "Market microstructure",
-    title: "Order book intelligence",
-    desc: "Co-located infrastructure at twelve points of presence reads order book dynamics, dark pool prints and volatility surfaces across more than forty venues.",
+    title: "NSE & BSE order book intelligence",
+    desc: "Colocated infrastructure at NSE (BKC) and BSE reads tick-by-tick depth, F&O open interest build-up, option chain skew and India VIX surfaces across cash, index and stock derivatives.",
     facts: [
-      { k: "Venues", v: "40+" },
-      { k: "Points of presence", v: "12" },
+      { k: "Venues", v: "NSE, BSE, MCX, NCDEX" },
+      { k: "Colocation racks", v: "3 PoPs" },
     ],
   },
   {
     label: "Risk engineering",
     title: "Continuous exposure control",
-    desc: "A Monte Carlo risk engine simulates 10,000 scenarios per second, adjusting position sizing to regime changes, tail events and correlation shifts.",
+    desc: "A Monte Carlo risk engine simulates 10,000 scenarios per second, adjusting position sizing to India VIX regimes, expiry-day gamma, SEBI margin and position limits, and circuit-filter events.",
     facts: [
       { k: "Scenarios / second", v: "10,000" },
       { k: "System uptime", v: "99.97%" },
