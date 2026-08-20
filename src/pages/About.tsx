@@ -1,160 +1,139 @@
 import { motion } from "framer-motion";
 import SieveNav from "@/components/SieveNav";
 import SieveFooter from "@/components/SieveFooter";
-import { MapPin, GraduationCap } from "lucide-react";
+import PageHero from "@/components/PageHero";
 
 const team = [
   {
-    name: "Dr. Kai Chen",
-    role: "Co-Founder & CEO",
-    bg: "Former Head of Systematic Strategies, Citadel Securities. PhD Applied Mathematics, MIT.",
-    focus: "Signal Architecture",
+    name: "Dr. Kartik Chandran",
+    role: "Co-Founder & Chief Executive",
+    bg: "Former Head of Systematic Strategies, institutional equities desk, Mumbai. PhD Applied Mathematics, IIT Bombay.",
+    focus: "Signal architecture",
   },
   {
-    name: "Adaeze Okafor",
-    role: "Co-Founder & CTO",
-    bg: "Former Principal Engineer, Palantir. MSc Computer Science, Stanford.",
+    name: "Ananya Deshpande",
+    role: "Co-Founder & Chief Technology Officer",
+    bg: "Former Principal Engineer on low-latency market data systems. MSc Computer Science, IISc Bengaluru.",
     focus: "Infrastructure & ML",
   },
   {
-    name: "Dr. Stefan Müller",
+    name: "Dr. Suhas Mhatre",
     role: "Head of Research",
-    bg: "Former Quantitative Researcher, Two Sigma. PhD Econophysics, ETH Zurich.",
-    focus: "Risk & Regime Models",
+    bg: "Former quantitative researcher covering Nifty and Bank Nifty derivatives. PhD Financial Econometrics, IGIDR Mumbai.",
+    focus: "Risk & regime models",
   },
   {
-    name: "Joon Park",
-    role: "Head of NLP",
-    bg: "Former Research Scientist, DeepMind. MSc NLP, University of Edinburgh.",
-    focus: "Language Models",
+    name: "Jyoti Nair",
+    role: "Head of Language Models",
+    bg: "Former research scientist in multilingual NLP. MSc Computational Linguistics, IIIT Hyderabad.",
+    focus: "Filings & news NLP",
   },
   {
-    name: "Raj Singh",
+    name: "Rajat Singhania",
     role: "Head of Execution",
-    bg: "Former VP Electronic Trading, Goldman Sachs. MEng, IIT Bombay.",
-    focus: "Execution Algorithms",
+    bg: "Former VP Electronic Trading, NSE cash and F&O algo desk. MEng, IIT Kanpur.",
+    focus: "Execution algorithms",
   },
   {
-    name: "Maria Fernandez",
+    name: "Meera Fernandes",
     role: "Head of Geospatial",
-    bg: "Former Senior Analyst, NGA. MSc Remote Sensing, Imperial College London.",
-    focus: "Satellite Intelligence",
+    bg: "Former senior analyst on port, plant and crop monitoring programmes. MSc Remote Sensing, IIT Roorkee.",
+    focus: "Satellite intelligence",
   },
 ];
 
 const timeline = [
-  { year: "2022", event: "Founded in London by Dr. Kai Chen and Adaeze Okafor" },
-  { year: "2023", event: "Seed round led by Sequoia Capital. First satellite data pipeline operational" },
-  { year: "2023", event: "Team grows to 12. First institutional client onboarded" },
-  { year: "2024", event: "Series A. Expanded to NYC and Singapore co-locations" },
-  { year: "2024", event: "Launched Sieve API v1. 40+ exchange connectivity" },
-  { year: "2025", event: "Series B. 400TB daily data processing milestone. SOC 2 Type II certified" },
-  { year: "2026", event: "API v2 launch. Team of 48 across 4 offices. 12 global PoPs" },
+  { year: "2022", event: "Founded in Mumbai by Dr. Kartik Chandran and Ananya Deshpande" },
+  { year: "2023", event: "Seed round from India-focused deep-tech funds. First satellite pipeline over Indian ports operational" },
+  { year: "2023", event: "Team grows to 12. First domestic institutional client onboarded" },
+  { year: "2024", event: "Series A. NSE and BSE co-location established at Mumbai data centres" },
+  { year: "2024", event: "Launched Sieve API v1 with NSE cash, F&O and IPO coverage" },
+  { year: "2025", event: "Series B. 400TB daily processing milestone. SOC 2 Type II certified" },
+  { year: "2026", event: "API v2 launch. Team of 48 across four Indian offices. GIFT City desk live" },
+];
+
+const stats = [
+  { value: "48", label: "Team members" },
+  { value: "4", label: "India offices" },
+  { value: "17", label: "PhDs on staff" },
+  { value: "147", label: "Data sources" },
+  { value: "₹350 Cr", label: "Total funding" },
+  { value: "2", label: "Exchanges co-located" },
+];
+
+const offices = [
+  { city: "Mumbai", address: "One BKC, Bandra Kurla Complex, 400051", label: "Headquarters" },
+  { city: "GIFT City", address: "Signature Tower, Gandhinagar, 382355", label: "IFSC desk" },
+  { city: "Bengaluru", address: "Embassy Golflinks, 560071", label: "Engineering" },
+  { city: "Delhi NCR", address: "DLF Cyber City, Gurugram, 122002", label: "Client coverage" },
 ];
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SieveNav />
+      <PageHero
+        kicker="About Sieve Capital"
+        title="Engineering alpha from noise in Indian markets"
+        intro="We are a Mumbai-headquartered team of quantitative researchers, systems engineers and data scientists building signal intelligence infrastructure for NSE and BSE participants."
+      />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-4">
-              About Sieve Capital
+      <section className="py-16 md:py-20">
+        <div className="container grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-7">
+            <p className="kicker mb-6">Mission</p>
+            <h2 className="font-display text-2xl md:text-3xl text-ink leading-snug mb-5">
+              Collapse the latency between global events and Indian institutional insight.
+            </h2>
+            <p className="text-soft text-sm leading-relaxed mb-4">
+              Indian markets now clear record cash and derivatives volumes across NSE and BSE, while
+              price-sensitive information arrives continuously through exchange filings, SEBI and RBI
+              disclosures, results calls, IPO and SME documents, and global macro prints.
             </p>
-            <h1 className="font-display text-4xl md:text-5xl text-signal mb-4 max-w-2xl">
-              Engineering Alpha from Noise
-            </h1>
-            <p className="text-dim text-base md:text-lg max-w-xl leading-relaxed">
-              We are a team of quantitative researchers, systems engineers, and data scientists 
-              building the next generation of signal intelligence infrastructure.
+            <p className="text-soft text-sm leading-relaxed">
+              Sieve Capital compresses the research timeline. We fuse satellite imagery over Indian
+              ports, plants and farmland with multilingual language models and market microstructure
+              data to deliver signals on Nifty, Bank Nifty, single stocks and commodities before the
+              move is fully priced.
             </p>
-          </motion.div>
-        </div>
-      </section>
+          </div>
 
-      {/* Mission */}
-      <section className="py-16 border-t border-border">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-4">Mission</p>
-              <h2 className="font-display text-2xl text-signal mb-4">
-                Collapse the latency between global events and institutional insight.
-              </h2>
-              <p className="text-dim text-sm leading-relaxed mb-4">
-                The world generates 2.5 quintillion bytes of data daily. Within that noise lies 
-                alpha — ephemeral signals that decay in milliseconds. Traditional research processes 
-                take hours or days to surface these signals.
-              </p>
-              <p className="text-dim text-sm leading-relaxed">
-                Sieve Capital exists to compress that timeline. We combine satellite imagery, 
-                natural language processing, and alternative data streams into a unified signal 
-                intelligence engine that delivers actionable insight before the market can price it in.
-              </p>
-            </div>
-            <div className="surface-glass rounded-lg p-6">
-              <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-6">
-                By the Numbers
-              </p>
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { value: "48", label: "Team Members" },
-                  { value: "4", label: "Global Offices" },
-                  { value: "17", label: "PhDs on Staff" },
-                  { value: "147", label: "Data Sources" },
-                  { value: "$42M", label: "Total Funding" },
-                  { value: "40+", label: "Exchange Connections" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <p className="font-mono-data text-cyber text-2xl">{stat.value}</p>
-                    <p className="text-dim text-xs mt-1">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+          <div className="lg:col-span-5 panel p-7">
+            <p className="kicker mb-6">By the numbers</p>
+            <div className="grid grid-cols-2 gap-y-7 gap-x-6">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-mono-data text-2xl text-ink">{stat.value}</p>
+                  <p className="text-soft text-xs mt-1">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-16 border-t border-border">
+      <section className="py-16 border-t border-border bg-secondary/40">
         <div className="container">
-          <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-8">
-            Leadership
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <p className="kicker mb-8">Leadership</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {team.map((person, i) => (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
+                key={person.name}
+                initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-                className="surface-glass rounded-lg p-5"
+                transition={{ delay: i * 0.05 }}
+                className="bg-paper-raised p-6"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded border border-cyber/20 flex items-center justify-center">
-                    <span className="font-mono-data text-xs text-cyber">
-                      {person.name.split(" ").map(n => n[0]).join("")}
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="text-signal text-sm font-medium">{person.name}</h3>
-                    <p className="text-cyber text-xs font-mono-data">{person.role}</p>
-                  </div>
-                </div>
-                <p className="text-dim text-xs leading-relaxed mb-2">
-                  <GraduationCap className="w-3 h-3 inline mr-1 text-dim" />
-                  {person.bg}
+                <p className="font-mono-data text-[11px] text-bronze mb-3">
+                  {person.name.split(" ").map((n) => n[0]).join("")}
                 </p>
-                <span className="font-mono-data text-[10px] text-dim border border-border rounded px-2 py-0.5">
+                <h3 className="font-display text-lg text-ink">{person.name}</h3>
+                <p className="text-[11px] uppercase tracking-[0.14em] text-soft mt-1 mb-3">
+                  {person.role}
+                </p>
+                <p className="text-soft text-xs leading-relaxed mb-4">{person.bg}</p>
+                <span className="text-[10px] uppercase tracking-[0.14em] text-soft border border-border px-2 py-1">
                   {person.focus}
                 </span>
               </motion.div>
@@ -163,60 +142,72 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
       <section className="py-16 border-t border-border">
         <div className="container">
-          <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-8">
-            Timeline
-          </p>
-          <div className="relative">
-            <div className="absolute left-[60px] md:left-[80px] top-0 bottom-0 w-px bg-border" />
-            <div className="space-y-6">
-              {timeline.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06 }}
-                  className="flex items-start gap-4 relative"
-                >
-                  <span className="font-mono-data text-xs text-cyber w-[48px] md:w-[68px] shrink-0 text-right">
-                    {item.year}
-                  </span>
-                  <div className="w-2 h-2 rounded-full bg-cyber/60 border border-cyber mt-1.5 shrink-0 relative z-10" />
-                  <p className="text-dim text-sm leading-relaxed">{item.event}</p>
-                </motion.div>
-              ))}
-            </div>
+          <p className="kicker mb-8">Timeline</p>
+          <div className="border-t border-border max-w-3xl">
+            {timeline.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -8 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="grid grid-cols-12 gap-4 py-5 border-b border-border"
+              >
+                <span className="col-span-3 md:col-span-2 font-mono-data text-xs text-bronze">
+                  {item.year}
+                </span>
+                <p className="col-span-9 md:col-span-10 text-soft text-sm leading-relaxed">
+                  {item.event}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Offices */}
-      <section className="py-16 border-t border-border">
+      <section className="py-16 border-t border-border bg-secondary/40">
         <div className="container">
-          <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-6">
-            Offices
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {[
-              { city: "London", address: "1 Finsbury Avenue, EC2M 2PF", label: "HQ" },
-              { city: "New York", address: "55 Hudson Yards, 10001", label: "Trading" },
-              { city: "Singapore", address: "1 Raffles Quay, 048583", label: "APAC" },
-              { city: "Zurich", address: "Bahnhofstrasse 45, 8001", label: "Research" },
-            ].map((office) => (
-              <div key={office.city} className="surface-glass rounded-lg p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <MapPin className="w-3.5 h-3.5 text-cyber" />
-                  <span className="text-signal text-sm font-medium">{office.city}</span>
-                  <span className="font-mono-data text-[9px] text-dim border border-border rounded px-1.5 py-0.5 ml-auto">
-                    {office.label}
-                  </span>
-                </div>
-                <p className="text-dim text-xs">{office.address}</p>
+          <p className="kicker mb-8">Offices</p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-border">
+            {offices.map((office) => (
+              <div key={office.city} className="bg-paper-raised p-6">
+                <h3 className="font-display text-lg text-ink">{office.city}</h3>
+                <p className="text-[10px] uppercase tracking-[0.14em] text-soft mt-1 mb-3">
+                  {office.label}
+                </p>
+                <p className="text-soft text-xs leading-relaxed">{office.address}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 border-t border-border">
+        <div className="container grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <p className="kicker mb-5">Contact</p>
+            <h2 className="font-display text-2xl text-ink mb-4">Institutional enquiries</h2>
+            <p className="text-soft text-sm leading-relaxed">
+              For coverage, API access or research distribution, write to{" "}
+              <a href="mailto:institutional@sieve.capital" className="text-bronze link-underline">
+                institutional@sieve.capital
+              </a>
+              . Our team responds within one business day, Monday to Friday, IST.
+            </p>
+          </div>
+          <div>
+            <p className="kicker mb-5">Careers</p>
+            <h2 className="font-display text-2xl text-ink mb-4">Work at Sieve</h2>
+            <p className="text-soft text-sm leading-relaxed">
+              We hire quantitative researchers, low-latency engineers and data scientists across
+              Mumbai, Bengaluru and GIFT City. Send your profile to{" "}
+              <a href="mailto:careers@sieve.capital" className="text-bronze link-underline">
+                careers@sieve.capital
+              </a>
+              .
+            </p>
           </div>
         </div>
       </section>
