@@ -4,24 +4,24 @@ import SieveFooter from "@/components/SieveFooter";
 import PageHero from "@/components/PageHero";
 
 const publications = [
-  { date: "March 2026", title: "Satellite-Derived Commodity Flow Estimation via Multi-Modal Fusion", authors: "Chen, K., Okafor, A., Müller, S.", journal: "Journal of Quantitative Finance", tag: "Geospatial" },
-  { date: "January 2026", title: "Low-Latency Sentiment Arbitrage in Fragmented FX Markets", authors: "Park, J., Singh, R., Fernandez, M.", journal: "Quantitative Finance Letters", tag: "Language" },
-  { date: "November 2025", title: "Regime Detection via Spectral Analysis of Cross-Asset Correlation Matrices", authors: "Müller, S., Chen, K.", journal: "Risk Magazine", tag: "Risk" },
-  { date: "September 2025", title: "Noise-Robust Signal Extraction from Social Media Event Streams", authors: "Okafor, A., Park, J., Ivanova, E.", journal: "Machine Learning in Finance", tag: "Language" },
-  { date: "June 2025", title: "Optimal Execution Under Regime-Switching Volatility Models", authors: "Singh, R., Fernandez, M.", journal: "Mathematical Finance", tag: "Execution" },
-  { date: "March 2025", title: "Port Congestion Prediction via Synthetic Aperture Radar Time Series", authors: "Chen, K., Okafor, A.", journal: "IEEE Transactions on Geoscience", tag: "Geospatial" },
+  { date: "March 2026", title: "Satellite-Derived Throughput Estimation for Indian Ports and Refineries", authors: "Chandran, K., Deshpande, A., Mhatre, S.", journal: "Journal of Quantitative Finance", tag: "Geospatial" },
+  { date: "January 2026", title: "Intraday Sentiment Arbitrage from Multilingual Indian News and Exchange Filings", authors: "Nair, J., Singhania, R., Fernandes, M.", journal: "IIM Bangalore Review of Finance", tag: "Language" },
+  { date: "November 2025", title: "Regime Detection in Nifty and Bank Nifty via Cross-Sector Correlation Spectra", authors: "Mhatre, S., Chandran, K.", journal: "Journal of Emerging Market Finance", tag: "Risk" },
+  { date: "September 2025", title: "FII and DII Flow Attribution Under Index Rebalance Events", authors: "Deshpande, A., Nair, J., Iyer, R.", journal: "Machine Learning in Finance", tag: "Flows" },
+  { date: "June 2025", title: "Optimal Execution in NSE F&O Under Peak-Margin and Expiry Constraints", authors: "Singhania, R., Fernandes, M.", journal: "Mathematical Finance", tag: "Execution" },
+  { date: "March 2025", title: "Mainboard and SME IPO Listing-Day Risk from Subscription Momentum", authors: "Chandran, K., Deshpande, A.", journal: "IGIDR Working Paper Series", tag: "Primary markets" },
 ];
 
 const reports = [
-  { title: "Q1 2026 Alpha Report", subtitle: "Signal performance across asset classes", date: "March 2026" },
-  { title: "Volatility Regime Outlook", subtitle: "Cross-market correlation breakdown", date: "February 2026" },
-  { title: "Alternative Data Census", subtitle: "Evaluation and ranking of 147 sources", date: "January 2026" },
-  { title: "Annual Research Review", subtitle: "2025 methodology retrospective", date: "December 2025" },
+  { title: "Q1 FY27 Alpha Report", subtitle: "Signal performance across NSE cash, F&O and commodities", date: "March 2026" },
+  { title: "India VIX Regime Outlook", subtitle: "Volatility and sector correlation breakdown", date: "February 2026" },
+  { title: "Alternative Data Census — India", subtitle: "Evaluation and ranking of 147 domestic and global sources", date: "January 2026" },
+  { title: "IPO & SME Primary Market Review", subtitle: "2025 listing cohort retrospective", date: "December 2025" },
 ];
 
 const principles = [
-  { title: "Quantitative rigour", desc: "Every signal hypothesis undergoes walk-forward validation across more than fifteen years of historical data with strict out-of-sample testing." },
-  { title: "Reproducibility", desc: "All research pipelines are containerised and version-controlled. Results reproduce to the last decimal across environments." },
+  { title: "Quantitative rigour", desc: "Every signal hypothesis is walk-forward validated across more than fifteen years of NSE and BSE history, with strict out-of-sample testing through 2008, 2013, 2020 and 2024 stress windows." },
+  { title: "Reproducibility", desc: "All research pipelines are containerised and version-controlled. Results reproduce to the last paisa across environments." },
   { title: "Open methodology", desc: "We publish our core methodologies. Our edge comes from execution speed and data breadth, not obscurity." },
 ];
 
@@ -32,7 +32,7 @@ const Research = () => {
       <PageHero
         kicker="Research & publications"
         title="Advancing the science of signal extraction"
-        intro="Our research team publishes peer-reviewed work at the intersection of machine learning, quantitative finance and geospatial intelligence."
+        intro="Our research team publishes peer-reviewed work at the intersection of machine learning, Indian market microstructure and geospatial intelligence."
       />
 
       <section className="py-16 md:py-20">

@@ -4,30 +4,30 @@ import SieveFooter from "@/components/SieveFooter";
 import PageHero from "@/components/PageHero";
 
 const infraStats = [
-  { value: "14ms", label: "End-to-end latency", detail: "Signal detection to order execution" },
-  { value: "400TB", label: "Daily ingestion", detail: "Across 147 data sources" },
-  { value: "99.97%", label: "System uptime", detail: "Rolling 365-day average" },
-  { value: "12", label: "Global points of presence", detail: "Co-located at major exchanges" },
+  { value: "14ms", label: "End-to-end latency", detail: "Signal detection to order placement at NSE colo" },
+  { value: "400TB", label: "Daily ingestion", detail: "Across 147 domestic and global sources" },
+  { value: "99.97%", label: "System uptime", detail: "Rolling 365-day average across market hours" },
+  { value: "6", label: "India points of presence", detail: "Co-located at NSE, BSE and GIFT City venues" },
 ];
 
 const archLayers = [
-  { name: "Data ingestion layer", desc: "Multi-protocol connectors ingesting satellite feeds (radar, thermal, optical), social media firehoses, news wires, regulatory filings and order book data across more than forty exchanges.", tech: ["Apache Kafka", "Custom CDC", "WebSocket multiplexing", "SAR decoder"] },
-  { name: "Signal processing engine", desc: "GPU-accelerated language pipeline with proprietary transformer models fine-tuned on a financial corpus. Real-time entity extraction, sentiment scoring and event classification.", tech: ["CUDA kernels", "Custom models", "ONNX Runtime", "TensorRT"] },
-  { name: "Correlation & fusion", desc: "Multi-modal fusion combining geospatial, sentiment and market microstructure data. Bayesian regime detection with spectral analysis of cross-asset correlations.", tech: ["Kalman filters", "Hidden Markov models", "Graph neural networks", "Spectral analysis"] },
-  { name: "Execution & risk", desc: "Smart order routing with optimal execution algorithms. Real-time Monte Carlo risk engine simulating 10,000 scenarios per second for dynamic position sizing.", tech: ["FIX 4.4", "Custom SOR", "FPGA bridge", "Monte Carlo"] },
-  { name: "Data infrastructure", desc: "Time-series optimised storage with columnar compression. Sub-millisecond query latency across petabyte-scale historical datasets for backtesting and research.", tech: ["TimescaleDB", "Apache Arrow", "Parquet", "Custom indexing"] },
-  { name: "Security & compliance", desc: "SOC 2 Type II certified infrastructure with end-to-end encryption, hardware security modules for key management and comprehensive audit trails.", tech: ["HSM", "mTLS", "Zero trust", "Role-based access"] },
+  { name: "Data ingestion layer", desc: "Multi-protocol connectors ingesting NSE and BSE tick and order book data, satellite feeds over Indian assets, vernacular news wires, exchange filings, SEBI and RBI disclosures, and global macro prints.", tech: ["Apache Kafka", "NSE NNF feed", "BSE BOLT", "SAR decoder"] },
+  { name: "Signal processing engine", desc: "GPU-accelerated language pipeline with transformer models fine-tuned on Indian filings, results transcripts and multilingual news. Real-time entity extraction, sentiment scoring and event classification.", tech: ["CUDA kernels", "IndicNLP models", "ONNX Runtime", "TensorRT"] },
+  { name: "Correlation & fusion", desc: "Multi-modal fusion of geospatial, sentiment and microstructure data with Bayesian regime detection across Nifty sector indices, India VIX and FII-DII flows.", tech: ["Kalman filters", "Hidden Markov models", "Graph neural networks", "Spectral analysis"] },
+  { name: "Execution & risk", desc: "Smart order routing across NSE and BSE with expiry-aware F&O execution. Real-time Monte Carlo risk engine sizing positions under SEBI peak-margin and position-limit rules.", tech: ["FIX 4.4", "Custom SOR", "FPGA bridge", "Monte Carlo"] },
+  { name: "Data infrastructure", desc: "Time-series optimised storage with columnar compression. Sub-millisecond query latency over petabyte-scale Indian market history for backtesting and research.", tech: ["TimescaleDB", "Apache Arrow", "Parquet", "Custom indexing"] },
+  { name: "Security & compliance", desc: "SOC 2 Type II certified infrastructure with end-to-end encryption, hardware security modules, India-resident data storage and audit trails aligned to SEBI system audit expectations.", tech: ["HSM", "mTLS", "Zero trust", "Role-based access"] },
 ];
 
 const nodes = [
-  { region: "LDN-GRW", location: "London — Equinix LD4", status: "Primary", latency: "0.8ms" },
-  { region: "NYC-SEC", location: "New Jersey — NY5", status: "Primary", latency: "1.2ms" },
-  { region: "TKY-OTE", location: "Tokyo — Equinix TY3", status: "Active", latency: "3.4ms" },
-  { region: "SGP-TAI", location: "Singapore — Equinix SG1", status: "Active", latency: "4.1ms" },
-  { region: "FRA-DEX", location: "Frankfurt — Equinix FR2", status: "Active", latency: "1.8ms" },
-  { region: "HKG-CTR", location: "Hong Kong — HKEX", status: "Active", latency: "5.2ms" },
-  { region: "CHI-CME", location: "Chicago — CME Aurora", status: "Primary", latency: "0.4ms" },
-  { region: "SYD-ASX", location: "Sydney — Equinix SY1", status: "Standby", latency: "8.1ms" },
+  { region: "MUM-NSE", location: "Mumbai — NSE colo, BKC", status: "Primary", latency: "0.2ms" },
+  { region: "MUM-BSE", location: "Mumbai — BSE colo, Dalal Street", status: "Primary", latency: "0.3ms" },
+  { region: "MUM-DC1", location: "Navi Mumbai — Airoli DC", status: "Active", latency: "0.9ms" },
+  { region: "GIFT-IFSC", location: "Gandhinagar — GIFT City IFSC", status: "Active", latency: "3.6ms" },
+  { region: "BLR-ENG", location: "Bengaluru — research cluster", status: "Active", latency: "6.4ms" },
+  { region: "DEL-NCR", location: "Noida — client gateway", status: "Standby", latency: "8.2ms" },
+  { region: "SGP-GLB", location: "Singapore — global macro relay", status: "Active", latency: "38ms" },
+  { region: "CHI-CME", location: "Chicago — CME reference feed", status: "Standby", latency: "212ms" },
 ];
 
 const Technology = () => {
@@ -37,7 +37,7 @@ const Technology = () => {
       <PageHero
         kicker="Technology & infrastructure"
         title="Built for institutional-grade performance"
-        intro="From data ingestion to order execution, every layer is engineered for sub-millisecond reliability at global scale."
+        intro="From data ingestion to order execution, every layer is engineered for sub-millisecond reliability across NSE and BSE sessions."
       />
 
       <section className="py-14 bg-secondary/40 border-b border-border">
@@ -87,7 +87,7 @@ const Technology = () => {
 
       <section className="py-16 border-t border-border bg-secondary/40">
         <div className="container">
-          <p className="kicker mb-8">Global infrastructure</p>
+          <p className="kicker mb-8">Infrastructure footprint</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
             {nodes.map((node) => (
               <div key={node.region} className="bg-paper-raised p-5">
