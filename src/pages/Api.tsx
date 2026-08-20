@@ -1,45 +1,72 @@
 import { motion } from "framer-motion";
 import SieveNav from "@/components/SieveNav";
 import SieveFooter from "@/components/SieveFooter";
+import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
-import { Terminal, Zap, Lock, Code2 } from "lucide-react";
 
 const endpoints = [
   {
     method: "GET",
     path: "/v2/signals/stream",
-    desc: "Real-time signal stream via WebSocket. Supports filtering by asset class, signal type, and confidence threshold.",
-    params: ["asset_class", "signal_type", "threshold", "format"],
+    desc: "Real-time signal stream over WebSocket. Filter by segment (cash, F&O, currency, commodity), signal type and confidence threshold.",
+    params: ["segment", "signal_type", "threshold", "format"],
   },
   {
     method: "GET",
     path: "/v2/signals/historical",
-    desc: "Query historical signals with time-range filtering and pagination. Returns enriched metadata.",
-    params: ["start", "end", "ticker", "limit", "cursor"],
+    desc: "Query historical signals for NSE and BSE symbols with time-range filtering, pagination and enriched metadata.",
+    params: ["start", "end", "symbol", "exchange", "limit", "cursor"],
   },
   {
     method: "POST",
-    path: "/v2/analyze/sentiment",
-    desc: "Submit text corpus for real-time sentiment analysis. Returns entity-level scores and event classifications.",
-    params: ["corpus", "model", "granularity"],
+    path: "/v2/analyze/filings",
+    desc: "Submit exchange filings, results transcripts or SEBI and RBI disclosures for entity-level sentiment and event classification. Supports English and Hindi.",
+    params: ["corpus", "model", "language", "granularity"],
+  },
+  {
+    method: "GET",
+    path: "/v2/derivatives/positioning",
+    desc: "Nifty, Bank Nifty and stock F&O positioning: open interest build-up, roll cost, PCR, IV skew and FII-DII derivatives activity.",
+    params: ["underlying", "expiry", "strike_range", "metric"],
+  },
+  {
+    method: "GET",
+    path: "/v2/primary/ipo",
+    desc: "Mainboard and SME IPO pipeline with DRHP tracking, subscription momentum by category, GMP proxy and listing-day risk estimates.",
+    params: ["status", "board", "sector", "issue_size"],
   },
   {
     method: "GET",
     path: "/v2/geospatial/assets",
-    desc: "Retrieve processed satellite intelligence for specific geographic coordinates and asset types.",
+    desc: "Processed satellite intelligence over Indian ports, refineries, cement plants, mines and cropland for a given coordinate and asset type.",
     params: ["lat", "lng", "radius_km", "asset_type"],
   },
   {
     method: "POST",
     path: "/v2/backtest/run",
-    desc: "Execute a backtest against historical signal data with custom strategy parameters and risk constraints.",
+    desc: "Run a backtest against historical Indian signal data with custom strategy parameters, lot sizes and risk constraints.",
     params: ["strategy_id", "start", "end", "capital", "risk_params"],
   },
   {
     method: "GET",
     path: "/v2/risk/exposure",
-    desc: "Current portfolio risk metrics including VaR, CVaR, factor exposures, and correlation matrices.",
+    desc: "Portfolio risk metrics including VaR, CVaR, India VIX beta, sector exposure and margin utilisation under SEBI peak-margin rules.",
     params: ["portfolio_id", "horizon", "confidence"],
+  },
+];
+
+const quickInfo = [
+  {
+    title: "WebSocket-first",
+    desc: "Streaming with automatic reconnection, backpressure handling and delta compression, aligned to NSE and BSE session hours.",
+  },
+  {
+    title: "Institutional authentication",
+    desc: "API key with HMAC signature, IP whitelisting, scoped permissions and per-desk rate limits.",
+  },
+  {
+    title: "SDKs available",
+    desc: "Official SDKs for Python, TypeScript, Go and Rust, with adapters for common Indian OMS and RMS platforms.",
   },
 ];
 
@@ -48,37 +75,38 @@ const codeExamples = {
 
 const client = new SieveClient({
   apiKey: process.env.SIEVE_API_KEY,
-  region: "ldn-grw"
+  region: "mum-nse"
 });
 
-// Subscribe to high-confidence signals
+// Subscribe to high-conviction Indian market signals
 const stream = client.signals.stream({
-  types: ["GEOSPATIAL", "NLP", "MACRO"],
+  types: ["FILINGS", "GEOSPATIAL", "DERIVATIVES"],
+  segments: ["NSE_CASH", "NSE_FO"],
   threshold: 0.85,
-  assets: ["COMMODITIES", "FX"],
   format: "DELTA"
 });
 
 stream.on("signal", (signal) => {
-  console.log(\`[\${signal.timestamp}] \${signal.ticker}\`);
+  console.log(\`[\${signal.timestamp}] \${signal.symbol}\`);
   console.log(\`  Direction: \${signal.direction}\`);
   console.log(\`  Confidence: \${signal.confidence}\`);
-  
+
   if (signal.confidence > 0.92) {
     execute(signal);
   }
 });
 
 stream.on("regime_change", (regime) => {
-  adjustRiskParams(regime);
+  adjustRiskParams(regime); // India VIX regime shift
 });`,
   rest: `curl -X GET "https://api.sieve.capital/v2/signals/historical" \\
   -H "Authorization: Bearer $SIEVE_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "start": "2026-03-01T00:00:00Z",
-    "end": "2026-03-15T00:00:00Z",
-    "ticker": "$BRENT",
+    "start": "2026-03-01T09:15:00+05:30",
+    "end": "2026-03-15T15:30:00+05:30",
+    "symbol": "RELIANCE",
+    "exchange": "NSE",
     "signal_type": "GEOSPATIAL",
     "limit": 100
   }'
@@ -88,15 +116,17 @@ stream.on("regime_change", (regime) => {
   "signals": [
     {
       "id": "sig_8f2a4b",
-      "timestamp": "2026-03-14T14:23:01.442Z",
-      "ticker": "$BRENT",
+      "timestamp": "2026-03-14T14:23:01.442+05:30",
+      "symbol": "RELIANCE",
+      "exchange": "NSE",
+      "segment": "CASH",
       "type": "GEOSPATIAL",
-      "source": "SAR_PORT_ROTTERDAM",
+      "source": "SAR_PORT_JAMNAGAR",
       "direction": "LONG",
       "confidence": 0.94,
       "metadata": {
         "tanker_count_delta": "+12%",
-        "congestion_index": 0.78
+        "throughput_index": 0.78
       }
     }
   ],
@@ -104,96 +134,75 @@ stream.on("regime_change", (regime) => {
 }`,
 };
 
+const limits = [
+  { tier: "Research", rate: "60 req / min", streams: "2 concurrent", history: "3 years" },
+  { tier: "Desk", rate: "600 req / min", streams: "10 concurrent", history: "10 years" },
+  { tier: "Enterprise", rate: "Unmetered", streams: "Unlimited", history: "Full archive" },
+];
+
 const Api = () => {
   return (
     <div className="min-h-screen bg-background">
       <SieveNav />
+      <PageHero
+        kicker="API reference"
+        title="Programmatic access to Indian market intelligence"
+        intro="REST endpoints and WebSocket streams for NSE and BSE cash, F&O, currency, commodity and primary markets, with global macro context built in."
+      />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6"
-          >
-            <div>
-              <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-4">
-                API Reference
-              </p>
-              <h1 className="font-display text-4xl md:text-5xl text-signal mb-4 max-w-2xl">
-                Programmatic Access to Signal Intelligence
-              </h1>
-              <p className="text-dim text-base md:text-lg max-w-xl leading-relaxed">
-                RESTful endpoints and WebSocket streams. Sub-millisecond delivery. 
-                Enterprise-grade authentication and rate limiting.
-              </p>
-            </div>
-            <div className="flex gap-3 shrink-0">
-              <Button variant="cyber" size="sm">
-                <Terminal className="w-3.5 h-3.5 mr-1" />
-                Get API Key
-              </Button>
-              <Button variant="cyber-outline" size="sm">
-                SDK Reference
-              </Button>
-            </div>
-          </motion.div>
+      <section className="py-10 border-b border-border">
+        <div className="container flex flex-wrap gap-3">
+          <Button variant="cyber" size="sm" className="h-10 px-5 text-xs">
+            Request API key
+          </Button>
+          <Button variant="cyber-outline" size="sm" className="h-10 px-5 text-xs">
+            SDK reference
+          </Button>
+          <span className="font-mono-data text-[11px] text-soft self-center ml-auto">
+            Base URL — https://api.sieve.capital · Region mum-nse
+          </span>
         </div>
       </section>
 
-      {/* Quick Info */}
-      <section className="py-8 border-t border-border">
+      <section className="py-16">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { icon: Zap, title: "WebSocket-First", desc: "Real-time streaming with automatic reconnection, backpressure handling, and delta compression." },
-              { icon: Lock, title: "Enterprise Auth", desc: "API key + HMAC signature authentication. IP whitelisting, rate limiting, and scoped permissions." },
-              { icon: Code2, title: "SDKs Available", desc: "Official SDKs for Python, TypeScript, Go, and Rust. Community libraries for Java and C++." },
-            ].map((item) => (
-              <div key={item.title} className="surface-glass rounded-lg p-5 flex items-start gap-3">
-                <item.icon className="w-4 h-4 text-cyber mt-0.5 shrink-0" />
-                <div>
-                  <h3 className="text-signal text-sm font-medium mb-1">{item.title}</h3>
-                  <p className="text-dim text-xs leading-relaxed">{item.desc}</p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+            {quickInfo.map((item) => (
+              <div key={item.title} className="bg-paper-raised p-7">
+                <h3 className="font-display text-xl text-ink mb-3">{item.title}</h3>
+                <p className="text-soft text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Endpoints */}
-      <section className="py-16 border-t border-border">
+      <section className="py-16 border-t border-border bg-secondary/40">
         <div className="container">
-          <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-6">
-            Endpoints
-          </p>
-          <div className="space-y-3">
+          <p className="kicker mb-8">Endpoints</p>
+          <div className="border-t border-border">
             {endpoints.map((ep, i) => (
               <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                key={ep.path}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="surface-glass rounded-lg p-5 group cursor-pointer"
+                transition={{ delay: i * 0.04 }}
+                className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 py-6 border-b border-border"
               >
-                <div className="flex flex-col md:flex-row md:items-center gap-3 mb-2">
-                  <span className={`font-mono-data text-xs px-2 py-0.5 rounded border shrink-0 w-fit ${
-                    ep.method === "GET"
-                      ? "text-cyber border-cyber/30 bg-cyber/5"
-                      : "text-foreground border-border bg-secondary"
-                  }`}>
+                <div className="md:col-span-4 flex items-center gap-3">
+                  <span className="font-mono-data text-[10px] tracking-[0.12em] text-bronze border border-border px-2 py-0.5">
                     {ep.method}
                   </span>
-                  <code className="font-mono-data text-sm text-signal">{ep.path}</code>
+                  <code className="font-mono-data text-[13px] text-ink">{ep.path}</code>
                 </div>
-                <p className="text-dim text-sm mb-3">{ep.desc}</p>
-                <div className="flex flex-wrap gap-2">
+                <p className="md:col-span-5 text-soft text-sm leading-relaxed">{ep.desc}</p>
+                <div className="md:col-span-3 flex flex-wrap gap-2 content-start">
                   {ep.params.map((p) => (
-                    <span key={p} className="font-mono-data text-[10px] text-dim border border-border rounded px-2 py-0.5">
+                    <span
+                      key={p}
+                      className="font-mono-data text-[10px] text-soft border border-border px-2 py-0.5"
+                    >
                       {p}
                     </span>
                   ))}
@@ -204,36 +213,60 @@ const Api = () => {
         </div>
       </section>
 
-      {/* Code Examples */}
       <section className="py-16 border-t border-border">
         <div className="container">
-          <p className="font-mono-data text-cyber text-xs tracking-widest uppercase mb-6">
-            Code Examples
-          </p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="surface-glass rounded-lg overflow-hidden">
-              <div className="flex items-center gap-2 px-4 py-2 border-b border-border">
-                <span className="w-2 h-2 rounded-full bg-cyber/60" />
-                <span className="font-mono-data text-xs text-dim">WebSocket Stream — TypeScript</span>
+          <p className="kicker mb-8">Code examples</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border">
+            <div className="bg-paper-raised">
+              <div className="px-5 py-3 border-b border-border">
+                <span className="font-mono-data text-[11px] text-soft">
+                  WebSocket stream — TypeScript
+                </span>
               </div>
-              <pre className="p-4 overflow-x-auto">
-                <code className="font-mono-data text-[11px] text-dim leading-relaxed whitespace-pre">
+              <pre className="p-5 overflow-x-auto">
+                <code className="font-mono-data text-[11px] text-soft leading-relaxed whitespace-pre">
                   {codeExamples.websocket}
                 </code>
               </pre>
             </div>
-            <div className="surface-glass rounded-lg overflow-hidden">
-              <div className="flex items-center gap-2 px-4 py-2 border-b border-border">
-                <span className="w-2 h-2 rounded-full bg-muted-foreground/60" />
-                <span className="font-mono-data text-xs text-dim">REST Query — cURL</span>
+            <div className="bg-paper-raised">
+              <div className="px-5 py-3 border-b border-border">
+                <span className="font-mono-data text-[11px] text-soft">REST query — cURL</span>
               </div>
-              <pre className="p-4 overflow-x-auto">
-                <code className="font-mono-data text-[11px] text-dim leading-relaxed whitespace-pre">
+              <pre className="p-5 overflow-x-auto">
+                <code className="font-mono-data text-[11px] text-soft leading-relaxed whitespace-pre">
                   {codeExamples.rest}
                 </code>
               </pre>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 border-t border-border bg-secondary/40">
+        <div className="container">
+          <p className="kicker mb-8">Rate limits</p>
+          <div className="border-t border-border">
+            <div className="grid grid-cols-4 gap-4 py-3 border-b border-border">
+              {["Tier", "Request rate", "Streams", "History"].map((h) => (
+                <span key={h} className="text-[10px] uppercase tracking-[0.14em] text-soft">
+                  {h}
+                </span>
+              ))}
+            </div>
+            {limits.map((row) => (
+              <div key={row.tier} className="grid grid-cols-4 gap-4 py-4 border-b border-border">
+                <span className="text-ink text-sm font-medium">{row.tier}</span>
+                <span className="font-mono-data text-sm text-soft">{row.rate}</span>
+                <span className="font-mono-data text-sm text-soft">{row.streams}</span>
+                <span className="font-mono-data text-sm text-soft">{row.history}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-[11px] text-soft mt-5">
+            Streaming entitlements follow exchange data policy. NSE and BSE real-time redistribution
+            requires an executed data agreement.
+          </p>
         </div>
       </section>
 
