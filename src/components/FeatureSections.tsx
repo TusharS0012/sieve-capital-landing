@@ -8,7 +8,7 @@ const features = [
       "Proprietary language models process every NSE and BSE corporate announcement, SEBI and RBI circular, DRHP filing, earnings call and regional-language business media feed — reducing 99.2% of noise to isolate actionable signals.",
     stats: [
       { value: "42K", label: "Filings & documents per day" },
-      { value: "112", label: "Data sources" },
+      { value: "147", label: "Data sources" },
     ],
   },
   {

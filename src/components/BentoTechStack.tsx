@@ -16,7 +16,7 @@ const pillars = [
     desc: "Transformer models fine-tuned on an Indian financial corpus score earnings calls, management commentary and business media in English, Hindi, Gujarati, Tamil and Marathi, alongside global newswires.",
     facts: [
       { k: "Languages", v: "5 + English wires" },
-      { k: "Sources", v: "112" },
+      { k: "Sources", v: "147" },
     ],
   },
   {

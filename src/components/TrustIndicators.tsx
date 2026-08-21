@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const metrics = [
   { value: "₹18,400 Cr", label: "Assets under signal coverage" },
-  { value: "112", label: "India & global data sources" },
+  { value: "147", label: "India & global data sources" },
   { value: "4", label: "Connected venues (NSE, BSE, MCX, NCDEX)" },
   { value: "3", label: "Colocation points of presence" },
 ];
