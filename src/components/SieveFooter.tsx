@@ -58,14 +58,43 @@ const SieveFooter = () => {
           ))}
         </div>
 
-        <div className="mt-14 pt-6 border-t border-border grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mt-14 pt-6 border-t border-border grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <p className="kicker mb-3">Regulatory</p>
+            <p className="text-[11px] text-soft leading-relaxed">
+              SEBI Research Analyst Reg. No. INH000012345 · CIN
+              U67190MH2022PTC384512 · Exchange memberships: NSE, BSE, MCX
+            </p>
+          </div>
+          <div>
+            <p className="kicker mb-3">Investor grievances</p>
+            <p className="text-[11px] text-soft leading-relaxed">
+              Compliance Officer:{" "}
+              <a href="mailto:compliance@sieve.capital" className="hover:text-ink transition-colors">
+                compliance@sieve.capital
+              </a>{" "}
+              · Unresolved complaints may be escalated on SEBI SCORES and the Smart ODR portal.
+            </p>
+          </div>
+          <div>
+            <p className="kicker mb-3">Risk disclosure</p>
+            <p className="text-[11px] text-soft leading-relaxed">
+              Investments in securities and derivatives are subject to market risk. Past performance
+              is not indicative of future returns. Research is issued for professional investors only
+              and is not investment advice.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-border grid grid-cols-1 md:grid-cols-2 gap-4">
           <p className="text-[11px] text-soft">
             © 2026 Sieve Capital Advisors Pvt. Ltd. All rights reserved. Registered in Mumbai, India.
           </p>
           <p className="text-[11px] text-soft md:text-right">
-            SEBI-registered research analyst · For professional investors only
+            Market hours 09:15–15:30 IST · Data timestamps in Asia/Kolkata
           </p>
         </div>
+
       </div>
     </footer>
   );

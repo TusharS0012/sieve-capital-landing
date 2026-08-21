@@ -9,7 +9,7 @@ const steps = [
   {
     step: "02",
     title: "Process",
-    desc: "Language models extract entities, classify events and score sentiment across 112 sources in English, Hindi, Gujarati, Tamil and Marathi business media.",
+    desc: "Language models extract entities, classify events and score sentiment across 147 sources in English, Hindi, Gujarati, Tamil and Marathi business media.",
   },
   {
     step: "03",
