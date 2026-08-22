@@ -5,37 +5,37 @@ import PageHero from "@/components/PageHero";
 
 const team = [
   {
-    name: "Dr. Kartik Chandran",
+    name: "XYZ",
     role: "Co-Founder & Chief Executive",
     bg: "Former Head of Systematic Strategies, institutional equities desk, Mumbai. PhD Applied Mathematics, IIT Bombay.",
     focus: "Signal architecture",
   },
   {
-    name: "Ananya Deshpande",
+    name: "XYZ",
     role: "Co-Founder & Chief Technology Officer",
     bg: "Former Principal Engineer on low-latency market data systems. MSc Computer Science, IISc Bengaluru.",
     focus: "Infrastructure & ML",
   },
   {
-    name: "Dr. Suhas Mhatre",
+    name: "XYZ",
     role: "Head of Research",
     bg: "Former quantitative researcher covering Nifty and Bank Nifty derivatives. PhD Financial Econometrics, IGIDR Mumbai.",
     focus: "Risk & regime models",
   },
   {
-    name: "Jyoti Nair",
+    name: "XYZ",
     role: "Head of Language Models",
     bg: "Former research scientist in multilingual NLP. MSc Computational Linguistics, IIIT Hyderabad.",
     focus: "Filings & news NLP",
   },
   {
-    name: "Rajat Singhania",
+    name: "XYZ",
     role: "Head of Execution",
     bg: "Former VP Electronic Trading, NSE cash and F&O algo desk. MEng, IIT Kanpur.",
     focus: "Execution algorithms",
   },
   {
-    name: "Meera Fernandes",
+    name: "XYZ",
     role: "Head of Geospatial",
     bg: "Former senior analyst on port, plant and crop monitoring programmes. MSc Remote Sensing, IIT Roorkee.",
     focus: "Satellite intelligence",
@@ -43,7 +43,7 @@ const team = [
 ];
 
 const timeline = [
-  { year: "2022", event: "Founded in Mumbai by Dr. Kartik Chandran and Ananya Deshpande" },
+  { year: "2022", event: "Founded in Mumbai by XYZ" },
   { year: "2023", event: "Seed round from India-focused deep-tech funds. First satellite pipeline over Indian ports operational" },
   { year: "2023", event: "Team grows to 12. First domestic institutional client onboarded" },
   { year: "2024", event: "Series A. NSE and BSE co-location established at Mumbai data centres" },
@@ -118,7 +118,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {team.map((person, i) => (
               <motion.div
-                key={person.name}
+                key={person.role}
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

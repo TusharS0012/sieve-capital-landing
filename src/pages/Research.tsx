@@ -4,12 +4,12 @@ import SieveFooter from "@/components/SieveFooter";
 import PageHero from "@/components/PageHero";
 
 const publications = [
-  { date: "March 2026", title: "Satellite-Derived Throughput Estimation for Indian Ports and Refineries", authors: "Chandran, K., Deshpande, A., Mhatre, S.", journal: "Journal of Quantitative Finance", tag: "Geospatial" },
-  { date: "January 2026", title: "Intraday Sentiment Arbitrage from Multilingual Indian News and Exchange Filings", authors: "Nair, J., Singhania, R., Fernandes, M.", journal: "IIM Bangalore Review of Finance", tag: "Language" },
-  { date: "November 2025", title: "Regime Detection in Nifty and Bank Nifty via Cross-Sector Correlation Spectra", authors: "Mhatre, S., Chandran, K.", journal: "Journal of Emerging Market Finance", tag: "Risk" },
-  { date: "September 2025", title: "FII and DII Flow Attribution Under Index Rebalance Events", authors: "Deshpande, A., Nair, J., Iyer, R.", journal: "Machine Learning in Finance", tag: "Flows" },
-  { date: "June 2025", title: "Optimal Execution in NSE F&O Under Peak-Margin and Expiry Constraints", authors: "Singhania, R., Fernandes, M.", journal: "Mathematical Finance", tag: "Execution" },
-  { date: "March 2025", title: "Mainboard and SME IPO Listing-Day Risk from Subscription Momentum", authors: "Chandran, K., Deshpande, A.", journal: "IGIDR Working Paper Series", tag: "Primary markets" },
+  { date: "March 2026", title: "Satellite-Derived Throughput Estimation for Indian Ports and Refineries", authors: "XYZ", journal: "Journal of Quantitative Finance", tag: "Geospatial" },
+  { date: "January 2026", title: "Intraday Sentiment Arbitrage from Multilingual Indian News and Exchange Filings", authors: "XYZ", journal: "IIM Bangalore Review of Finance", tag: "Language" },
+  { date: "November 2025", title: "Regime Detection in Nifty and Bank Nifty via Cross-Sector Correlation Spectra", authors: "XYZ", journal: "Journal of Emerging Market Finance", tag: "Risk" },
+  { date: "September 2025", title: "FII and DII Flow Attribution Under Index Rebalance Events", authors: "XYZ", journal: "Machine Learning in Finance", tag: "Flows" },
+  { date: "June 2025", title: "Optimal Execution in NSE F&O Under Peak-Margin and Expiry Constraints", authors: "XYZ", journal: "Mathematical Finance", tag: "Execution" },
+  { date: "March 2025", title: "Mainboard and SME IPO Listing-Day Risk from Subscription Momentum", authors: "XYZ", journal: "IGIDR Working Paper Series", tag: "Primary markets" },
 ];
 
 const reports = [
