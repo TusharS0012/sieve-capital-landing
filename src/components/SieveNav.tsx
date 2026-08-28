@@ -38,7 +38,12 @@ const SieveNav = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="cyber" size="sm" className="hidden sm:inline-flex text-xs h-9 px-4">
+          <Button
+            variant="cyber"
+            size="sm"
+            className="hidden sm:inline-flex text-xs h-9 px-4"
+            onClick={() => notifyComingSoon("Client login")}
+          >
             Client Login
           </Button>
           <button

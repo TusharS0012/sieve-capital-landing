@@ -152,10 +152,20 @@ const Api = () => {
 
       <section className="py-10 border-b border-border">
         <div className="container flex flex-wrap gap-3">
-          <Button variant="cyber" size="sm" className="h-10 px-5 text-xs">
+          <Button
+            variant="cyber"
+            size="sm"
+            className="h-10 px-5 text-xs"
+            onClick={() => notifyComingSoon("API access")}
+          >
             Request API key
           </Button>
-          <Button variant="cyber-outline" size="sm" className="h-10 px-5 text-xs">
+          <Button
+            variant="cyber-outline"
+            size="sm"
+            className="h-10 px-5 text-xs"
+            onClick={() => notifyComingSoon("SDK reference")}
+          >
             SDK reference
           </Button>
           <span className="font-mono-data text-[11px] text-soft self-center ml-auto">
