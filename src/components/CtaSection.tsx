@@ -29,9 +29,9 @@ const CtaSection = () => {
               Ready to collapse the latency?
             </h2>
             <p className="text-primary-foreground/70 text-sm md:text-base leading-relaxed max-w-lg">
-              Sieve is available to SEBI-registered AIFs, PMS managers, mutual funds, proprietary
-              desks and family offices in India. Request access to our API terminal and signal
-              intelligence platform.
+              Sieve is being built for SEBI-registered AIFs, PMS managers, mutual funds, proprietary
+              desks and family offices in India. We're currently in the building stage — leave your
+              email and we'll reach out the moment the platform opens for business.
             </p>
           </div>
 
@@ -50,14 +50,15 @@ const CtaSection = () => {
                   type="submit"
                   className="h-12 px-7 rounded-none bg-primary-foreground text-primary hover:bg-primary-foreground/90 shrink-0"
                 >
-                  Request access
+                  Notify me at launch
                 </Button>
               </form>
             ) : (
               <div className="border border-primary-foreground/25 p-6">
-                <p className="text-sm font-medium mb-1">Request received</p>
+                <p className="text-sm font-medium mb-1">You're on the list</p>
                 <p className="text-primary-foreground/70 text-sm">
-                  Our institutional team will review your request within 24 hours.
+                  Sieve Capital is currently in the building stage. We'll notify you the moment
+                  access opens and we begin doing business.
                 </p>
               </div>
             )}

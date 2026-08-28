@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { notifyComingSoon } from "@/lib/coming-soon";
 
 const navItems = [
   { label: "Research", href: "/research" },
@@ -37,7 +38,12 @@ const SieveNav = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="cyber" size="sm" className="hidden sm:inline-flex text-xs h-9 px-4">
+          <Button
+            variant="cyber"
+            size="sm"
+            className="hidden sm:inline-flex text-xs h-9 px-4"
+            onClick={() => notifyComingSoon("Client login")}
+          >
             Client Login
           </Button>
           <button
