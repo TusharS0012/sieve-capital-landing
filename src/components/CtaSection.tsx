@@ -50,7 +50,7 @@ const CtaSection = () => {
                   type="submit"
                   className="h-12 px-7 rounded-none bg-primary-foreground text-primary hover:bg-primary-foreground/90 shrink-0"
                 >
-                  Request access
+                  Notify me at launch
                 </Button>
               </form>
             ) : (
