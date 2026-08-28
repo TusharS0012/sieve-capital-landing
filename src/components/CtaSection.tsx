@@ -29,9 +29,9 @@ const CtaSection = () => {
               Ready to collapse the latency?
             </h2>
             <p className="text-primary-foreground/70 text-sm md:text-base leading-relaxed max-w-lg">
-              Sieve is available to SEBI-registered AIFs, PMS managers, mutual funds, proprietary
-              desks and family offices in India. Request access to our API terminal and signal
-              intelligence platform.
+              Sieve is being built for SEBI-registered AIFs, PMS managers, mutual funds, proprietary
+              desks and family offices in India. We're currently in the building stage — leave your
+              email and we'll reach out the moment the platform opens for business.
             </p>
           </div>
 
