@@ -55,9 +55,10 @@ const CtaSection = () => {
               </form>
             ) : (
               <div className="border border-primary-foreground/25 p-6">
-                <p className="text-sm font-medium mb-1">Request received</p>
+                <p className="text-sm font-medium mb-1">You're on the list</p>
                 <p className="text-primary-foreground/70 text-sm">
-                  Our institutional team will review your request within 24 hours.
+                  Sieve Capital is currently in the building stage. We'll notify you the moment
+                  access opens and we begin doing business.
                 </p>
               </div>
             )}

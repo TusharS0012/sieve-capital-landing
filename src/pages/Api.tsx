@@ -3,6 +3,7 @@ import SieveNav from "@/components/SieveNav";
 import SieveFooter from "@/components/SieveFooter";
 import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
+import { notifyComingSoon } from "@/lib/coming-soon";
 
 const endpoints = [
   {
