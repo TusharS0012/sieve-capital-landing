@@ -9,6 +9,9 @@ import Research from "./pages/Research.tsx";
 import Technology from "./pages/Technology.tsx";
 import Api from "./pages/Api.tsx";
 import About from "./pages/About.tsx";
+import Verify from "./pages/Verify.tsx";
+import Auth from "./pages/Auth.tsx";
+import AdminCertificates from "./pages/AdminCertificates.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -25,6 +28,10 @@ const App = () => (
           <Route path="/technology" element={<Technology />} />
           <Route path="/api" element={<Api />} />
           <Route path="/about" element={<About />} />
+          <Route path="/verify" element={<Verify />} />
+          <Route path="/verify/:code" element={<Verify />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/admin/certificates" element={<AdminCertificates />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
