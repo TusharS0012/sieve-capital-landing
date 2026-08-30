@@ -24,7 +24,11 @@ type Certificate = {
 
 const fmt = (d: string | null) =>
   d
-    ? new Date(d).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })
+    ? new Date(d).toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      })
     : "—";
 
 const Verify = () => {
@@ -36,27 +40,48 @@ const Verify = () => {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    if (!code) {
+    const searchCode = code?.trim().toUpperCase();
+
+    if (!searchCode) {
       setCert(null);
       setNotFound(false);
+      setLoading(false);
       return;
     }
-    setQuery(code);
+
+    setQuery(searchCode);
     let active = true;
     setLoading(true);
-    supabase
-      .from("certificates")
-      .select(
-        "certificate_code, holder_name, program, role_title, start_date, end_date, issued_on, mentor, status, notes",
-      )
-      .eq("certificate_code", code.trim().toUpperCase())
-      .maybeSingle()
-      .then(({ data }) => {
+
+    (async () => {
+      try {
+        const { data, error } = await supabase
+          .from("certificates")
+          .select(
+            "certificate_code, holder_name, program, role_title, start_date, end_date, issued_on, mentor, status, notes",
+          )
+          .eq("certificate_code", searchCode)
+          .maybeSingle();
+
         if (!active) return;
-        setCert(data as Certificate | null);
-        setNotFound(!data);
+        if (error) {
+          console.error("Error fetching certificate:", error.message);
+          setCert(null);
+          setNotFound(true);
+        } else {
+          setCert(data as Certificate | null);
+          setNotFound(!data);
+        }
         setLoading(false);
-      });
+      } catch (err) {
+        if (!active) return;
+        console.error("Unexpected error:", err);
+        setCert(null);
+        setNotFound(true);
+        setLoading(false);
+      }
+    })();
+
     return () => {
       active = false;
     };
@@ -69,6 +94,10 @@ const Verify = () => {
   };
 
   const isValid = cert?.status === "valid";
+  const verificationUrl =
+    typeof window !== "undefined" && cert
+      ? `${window.location.origin}/verify/${encodeURIComponent(cert.certificate_code)}`
+      : "";
 
   return (
     <div className="min-h-screen bg-background">
@@ -107,13 +136,16 @@ const Verify = () => {
               <div className="border border-border bg-paper-raised p-7">
                 <div className="flex items-center gap-3 mb-3">
                   <XCircle className="w-5 h-5 text-destructive" />
-                  <h2 className="font-display text-2xl text-ink">No record found</h2>
+                  <h2 className="font-display text-2xl text-ink">
+                    No record found
+                  </h2>
                 </div>
                 <p className="text-soft text-sm leading-relaxed">
                   The code{" "}
-                  <span className="font-mono-data text-ink">{code}</span> does not match any
-                  certificate in our registry. Please re-check the code, or write to
-                  compliance@sieve.capital if you believe this document was issued by us.
+                  <span className="font-mono-data text-ink">{code}</span> does
+                  not match any certificate in our registry. Please re-check the
+                  code, or write to compliance@sieve.capital if you believe this
+                  document was issued by us.
                 </p>
               </div>
             )}
@@ -127,7 +159,9 @@ const Verify = () => {
                     <XCircle className="w-5 h-5 text-destructive" />
                   )}
                   <h2 className="font-display text-2xl text-ink">
-                    {isValid ? "Certificate verified" : `Certificate ${cert.status}`}
+                    {isValid
+                      ? "Certificate verified"
+                      : `Certificate ${cert.status}`}
                   </h2>
                 </div>
 
@@ -138,7 +172,10 @@ const Verify = () => {
                       ["Holder", cert.holder_name],
                       ["Programme", cert.program],
                       ["Role", cert.role_title ?? "—"],
-                      ["Period", `${fmt(cert.start_date)} — ${fmt(cert.end_date)}`],
+                      [
+                        "Period",
+                        `${fmt(cert.start_date)} — ${fmt(cert.end_date)}`,
+                      ],
                       ["Issued on", fmt(cert.issued_on)],
                       ["Supervisor", cert.mentor ?? "—"],
                       ["Status", cert.status.toUpperCase()],
@@ -147,7 +184,9 @@ const Verify = () => {
                         <dt className="text-[10px] uppercase tracking-[0.14em] text-soft mb-1.5">
                           {label}
                         </dt>
-                        <dd className="text-ink text-sm font-mono-data">{value}</dd>
+                        <dd className="text-ink text-sm font-mono-data">
+                          {value}
+                        </dd>
                       </div>
                     ))}
                     {cert.notes && (
@@ -155,7 +194,9 @@ const Verify = () => {
                         <dt className="text-[10px] uppercase tracking-[0.14em] text-soft mb-1.5">
                           Notes
                         </dt>
-                        <dd className="text-soft text-sm leading-relaxed">{cert.notes}</dd>
+                        <dd className="text-soft text-sm leading-relaxed">
+                          {cert.notes}
+                        </dd>
                       </div>
                     )}
                   </dl>
@@ -163,7 +204,7 @@ const Verify = () => {
                   <div className="border-t md:border-t-0 md:border-l border-border p-7 flex flex-col items-center justify-center gap-4">
                     <div className="bg-white p-3">
                       <QRCodeCanvas
-                        value={`${window.location.origin}/verify/${cert.certificate_code}`}
+                        value={verificationUrl}
                         size={128}
                         level="M"
                       />
@@ -180,9 +221,10 @@ const Verify = () => {
 
             {!loading && !cert && !notFound && (
               <p className="text-soft text-sm leading-relaxed">
-                Enter a certificate code above, or scan the QR code printed on the certificate. Each
-                QR resolves to a permanent verification link that anyone — an employer, university
-                or counterparty — can open without an account.
+                Enter a certificate code above, or scan the QR code printed on
+                the certificate. Each QR resolves to a permanent verification
+                link that anyone — an employer, university or counterparty — can
+                open without an account.
               </p>
             )}
           </div>

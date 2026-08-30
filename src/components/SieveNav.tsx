@@ -9,7 +9,6 @@ const navItems = [
   { label: "Technology", href: "/technology" },
   { label: "API", href: "/api" },
   { label: "About", href: "/about" },
-  { label: "Verify", href: "/verify" },
 ];
 
 const SieveNav = () => {
@@ -20,8 +19,12 @@ const SieveNav = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container flex items-center justify-between h-16">
         <Link to="/" className="flex items-baseline gap-2">
-          <span className="font-display text-xl tracking-tight text-ink">Sieve</span>
-          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.2em] text-soft">Capital</span>
+          <span className="font-display text-xl tracking-tight text-ink">
+            Sieve
+          </span>
+          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.2em] text-soft">
+            Capital
+          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -30,7 +33,9 @@ const SieveNav = () => {
               key={item.label}
               to={item.href}
               className={`text-[13px] tracking-wide link-underline ${
-                location.pathname === item.href ? "text-bronze" : "text-soft hover:text-ink"
+                location.pathname === item.href
+                  ? "text-bronze"
+                  : "text-soft hover:text-ink"
               }`}
             >
               {item.label}
