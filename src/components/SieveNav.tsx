@@ -9,6 +9,7 @@ const navItems = [
   { label: "Technology", href: "/technology" },
   { label: "API", href: "/api" },
   { label: "About", href: "/about" },
+  { label: "Verify", href: "/verify" },
 ];
 
 const SieveNav = () => {
