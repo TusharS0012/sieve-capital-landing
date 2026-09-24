@@ -63,7 +63,7 @@ const CtaSection = () => {
               </div>
             )}
             <p className="text-[11px] text-primary-foreground/50 mt-5 tracking-wide">
-              SOC 2 Type II certified · NDA required · Minimum AUM ₹100 Cr
+              Pre-launch interest only · No services are currently being offered
             </p>
           </div>
         </motion.div>

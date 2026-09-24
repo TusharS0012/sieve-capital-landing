@@ -37,8 +37,8 @@ const SieveFooter = () => {
               Sieve Capital
             </Link>
             <p className="text-soft text-sm leading-relaxed max-w-sm mt-3">
-              Quantitative signal intelligence for Indian institutional investors. NSE, BSE, F&O,
-              equity and IPO coverage, read against global market news.
+              Building quantitative intelligence for Indian institutional markets, with planned
+              NSE, BSE, F&O, equity and IPO coverage informed by global market news.
             </p>
           </div>
 
@@ -62,33 +62,33 @@ const SieveFooter = () => {
           <div>
             <p className="kicker mb-3">Regulatory</p>
             <p className="text-[11px] text-soft leading-relaxed">
-              SEBI Research Analyst Reg. No. INH000012345 · CIN
-              U67190MH2022PTC384512 · Exchange memberships: NSE, BSE, MCX
+              Pre-launch project. Sieve Capital is not yet offering investment, research,
+              execution or portfolio-management services. Required registrations and permissions
+              will be obtained before any regulated activity begins.
             </p>
           </div>
           <div>
             <p className="kicker mb-3">Investor grievances</p>
             <p className="text-[11px] text-soft leading-relaxed">
-              Compliance Officer:{" "}
+              As no regulated services are currently offered, there are no active investor-service
+              grievances. General pre-launch enquiries may be sent to{" "}
               <a href="mailto:compliance@sieve.capital" className="hover:text-ink transition-colors">
                 compliance@sieve.capital
-              </a>{" "}
-              · Unresolved complaints may be escalated on SEBI SCORES and the Smart ODR portal.
+              </a>.
             </p>
           </div>
           <div>
             <p className="kicker mb-3">Risk disclosure</p>
             <p className="text-[11px] text-soft leading-relaxed">
-              Investments in securities and derivatives are subject to market risk. Past performance
-              is not indicative of future returns. Research is issued for professional investors only
-              and is not investment advice.
+              All market information and interface examples on this website are illustrative. They
+              are not live signals, actual performance, investment research or investment advice.
             </p>
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-border grid grid-cols-1 md:grid-cols-2 gap-4">
           <p className="text-[11px] text-soft">
-            © 2026 Sieve Capital Advisors Pvt. Ltd. All rights reserved. Registered in Mumbai, India.
+            © 2026 Sieve Capital. All rights reserved. Pre-launch initiative based in India.
           </p>
           <p className="text-[11px] text-soft md:text-right">
             Market hours 09:15–15:30 IST · Data timestamps in Asia/Kolkata
