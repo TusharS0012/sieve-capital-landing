@@ -59,12 +59,12 @@ const LiveSignalFeed = () => {
           <div className="max-w-xl">
             <p className="kicker mb-4">Signal feed</p>
             <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
-              A representative view of the Indian market intelligence stream
+              An illustrative preview of the intended intelligence format
             </h2>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-bronze" />
-            <span className="text-[11px] uppercase tracking-[0.14em] text-soft">Live · delayed sample</span>
+            <span className="text-[11px] uppercase tracking-[0.14em] text-soft">Simulated · not live data</span>
           </div>
         </div>
 
@@ -96,8 +96,8 @@ const LiveSignalFeed = () => {
           </table>
         </div>
         <p className="text-[11px] text-soft mt-4 max-w-2xl">
-          Illustrative sample of engine output. Not investment advice and not a recommendation to
-          buy or sell any security. Securities investments are subject to market risks.
+          Fictional examples shown only to demonstrate the planned interface. They are not live
+          observations, model output, investment advice or recommendations to trade.
         </p>
       </div>
     </section>

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const metrics = [
-  { value: "₹18,400 Cr", label: "Assets under signal coverage" },
-  { value: "147", label: "India & global data sources" },
-  { value: "4", label: "Connected venues (NSE, BSE, MCX, NCDEX)" },
-  { value: "3", label: "Colocation points of presence" },
+  { value: "NSE", label: "Planned cash and derivatives coverage" },
+  { value: "BSE", label: "Planned cash-market coverage" },
+  { value: "IPO", label: "Mainboard and SME research scope" },
+  { value: "Global", label: "Macro news context under development" },
 ];
 
 const TrustIndicators = () => {
@@ -13,10 +13,10 @@ const TrustIndicators = () => {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <p className="kicker mb-3">Institutional grade</p>
+            <p className="kicker mb-3">Intended market scope</p>
             <p className="text-soft text-sm leading-relaxed max-w-sm">
-              Trusted by Indian AIFs, PMS managers, proprietary desks and mutual fund
-              research teams.
+              Being designed for Indian AIFs, PMS managers, proprietary desks, mutual funds
+              and family offices. No client services are currently being offered.
             </p>
           </div>
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">

@@ -5,30 +5,30 @@ const features = [
     label: "Signal sifting",
     title: "Language models that separate substance from noise",
     description:
-      "Proprietary language models process every NSE and BSE corporate announcement, SEBI and RBI circular, DRHP filing, earnings call and regional-language business media feed — reducing 99.2% of noise to isolate actionable signals.",
+      "The planned language layer will analyse NSE and BSE announcements, SEBI and RBI circulars, DRHP filings, earnings calls and regional-language business media to help separate material events from market noise.",
     stats: [
-      { value: "42K", label: "Filings & documents per day" },
-      { value: "147", label: "Data sources" },
+      { value: "Multi-source", label: "Planned document coverage" },
+      { value: "5+", label: "Intended languages" },
     ],
   },
   {
     label: "Momentum execution",
-    title: "From published news to executed trade in milliseconds",
+    title: "From published news to a decision-ready signal",
     description:
-      "Signal detection to order execution in 14 milliseconds. Our momentum engine correlates multi-modal data with live NSE and BSE order-book dynamics across cash equity, index and stock F&O, and currency derivatives.",
+      "The momentum engine is being designed to correlate multi-modal information with NSE and BSE market dynamics across cash equity, index and stock F&O, and currency derivatives. Execution connectivity is not yet active.",
     stats: [
-      { value: "14ms", label: "End-to-end latency" },
-      { value: "4", label: "Indian venues" },
+      { value: "Low latency", label: "Engineering objective" },
+      { value: "Multi-venue", label: "Intended architecture" },
     ],
   },
   {
     label: "Adaptive risk",
     title: "Exposure recalibrated continuously, not quarterly",
     description:
-      "Portfolio risk is recalculated using Monte Carlo simulation across 10,000 scenarios per second. Position sizing adapts to India VIX regimes, expiry-day gamma, SEBI margin and position limits, and FII/DII flow reversals.",
+      "The proposed risk layer will test position sizing against India VIX regimes, expiry-day gamma, SEBI margin and position limits, and FII/DII flow reversals before any future deployment.",
     stats: [
-      { value: "10K", label: "Scenarios per second" },
-      { value: "0.02%", label: "Max drawdown target" },
+      { value: "Scenario-led", label: "Planned risk testing" },
+      { value: "Pre-trade", label: "Intended controls" },
     ],
   },
 ];

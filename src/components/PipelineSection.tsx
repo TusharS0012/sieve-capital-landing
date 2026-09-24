@@ -4,22 +4,22 @@ const steps = [
   {
     step: "01",
     title: "Ingest",
-    desc: "NSE and BSE tick data, F&O open interest, bulk and block deals, FII/DII flows, exchange filings, GST and port throughput proxies, plus global macro wires.",
+    desc: "The intended inputs include NSE and BSE market data, F&O open interest, bulk and block deals, FII/DII flows, exchange filings, economic proxies and global macro news.",
   },
   {
     step: "02",
     title: "Process",
-    desc: "Language models extract entities, classify events and score sentiment across 147 sources in English, Hindi, Gujarati, Tamil and Marathi business media.",
+    desc: "Planned language models will extract entities, classify events and assess sentiment across English, Hindi, Gujarati, Tamil and Marathi business media.",
   },
   {
     step: "03",
     title: "Signal",
-    desc: "Fusion correlates filings, flows, options positioning and global cues into high-confidence Nifty, Bank Nifty and single-stock signals.",
+    desc: "The research design will combine filings, flows, options positioning and global cues into testable Nifty, Bank Nifty and single-stock hypotheses.",
   },
   {
     step: "04",
     title: "Execute",
-    desc: "Exchange-approved algo routing to NSE and BSE with real-time risk checks. 14 milliseconds from detection to order.",
+    desc: "A future execution layer may connect approved routing and pre-trade risk controls, subject to testing, permissions and applicable exchange rules.",
   },
 ];
 
@@ -30,7 +30,7 @@ const PipelineSection = () => {
         <div className="max-w-2xl mb-14">
           <p className="kicker mb-4">The process</p>
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
-            From Indian market data to institutional alpha in fourteen milliseconds
+            The proposed path from Indian market data to decision-ready intelligence
           </h2>
         </div>
 

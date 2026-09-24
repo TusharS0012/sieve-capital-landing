@@ -146,9 +146,9 @@ const Api = () => {
     <div className="min-h-screen bg-background">
       <SieveNav />
       <PageHero
-        kicker="API reference"
-        title="Programmatic access to Indian market intelligence"
-        intro="REST endpoints and WebSocket streams for NSE and BSE cash, F&O, currency, commodity and primary markets, with global macro context built in."
+        kicker="API preview"
+        title="A proposed interface for Indian market intelligence"
+        intro="This page previews the REST and streaming interface we intend to build for Indian market research. The API, SDKs, endpoints and base URL are not currently live."
       />
 
       <section className="py-10 border-b border-border">
@@ -170,7 +170,7 @@ const Api = () => {
             SDK reference
           </Button>
           <span className="font-mono-data text-[11px] text-soft self-center ml-auto">
-            Base URL — https://api.sieve.capital · Region mum-nse
+            Proposed base URL · Not operational
           </span>
         </div>
       </section>
@@ -190,7 +190,7 @@ const Api = () => {
 
       <section className="py-16 border-t border-border bg-secondary/40">
         <div className="container">
-          <p className="kicker mb-8">Endpoints</p>
+          <p className="kicker mb-8">Proposed endpoints</p>
           <div className="border-t border-border">
             {endpoints.map((ep, i) => (
               <motion.div
@@ -226,7 +226,7 @@ const Api = () => {
 
       <section className="py-16 border-t border-border">
         <div className="container">
-          <p className="kicker mb-8">Code examples</p>
+          <p className="kicker mb-8">Illustrative code examples</p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border">
             <div className="bg-paper-raised">
               <div className="px-5 py-3 border-b border-border">
@@ -256,7 +256,7 @@ const Api = () => {
 
       <section className="py-16 border-t border-border bg-secondary/40">
         <div className="container">
-          <p className="kicker mb-8">Rate limits</p>
+          <p className="kicker mb-8">Proposed access tiers</p>
           <div className="border-t border-border">
             <div className="grid grid-cols-4 gap-4 py-3 border-b border-border">
               {["Tier", "Request rate", "Streams", "History"].map((h) => (
@@ -275,8 +275,8 @@ const Api = () => {
             ))}
           </div>
           <p className="text-[11px] text-soft mt-5">
-            Streaming entitlements follow exchange data policy. NSE and BSE real-time redistribution
-            requires an executed data agreement.
+            These tiers are planning placeholders. Any future market-data access or redistribution
+            will depend on licensing, agreements and applicable exchange rules.
           </p>
         </div>
       </section>

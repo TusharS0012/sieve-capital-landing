@@ -43,29 +43,25 @@ const team = [
 ];
 
 const timeline = [
-  { year: "2022", event: "Founded in Mumbai by XYZ" },
-  { year: "2023", event: "Seed round from India-focused deep-tech funds. First satellite pipeline over Indian ports operational" },
-  { year: "2023", event: "Team grows to 12. First domestic institutional client onboarded" },
-  { year: "2024", event: "Series A. NSE and BSE co-location established at Mumbai data centres" },
-  { year: "2024", event: "Launched Sieve API v1 with NSE cash, F&O and IPO coverage" },
-  { year: "2025", event: "Series B. 400TB daily processing milestone. SOC 2 Type II certified" },
-  { year: "2026", event: "API v2 launch. Team of 48 across four Indian offices. GIFT City desk live" },
+  { year: "Now", event: "Sieve Capital is in the planning and development stage in India" },
+  { year: "Phase 01", event: "Build and validate the research framework using permitted historical and public data" },
+  { year: "Phase 02", event: "Develop multilingual document intelligence and Indian-market risk models" },
+  { year: "Phase 03", event: "Complete security, legal, regulatory and data-licensing readiness" },
+  { year: "Phase 04", event: "Begin limited institutional pilots only after the required approvals are in place" },
 ];
 
 const stats = [
-  { value: "48", label: "Team members" },
-  { value: "4", label: "India offices" },
-  { value: "17", label: "PhDs on staff" },
-  { value: "147", label: "Data sources" },
-  { value: "₹350 Cr", label: "Total funding" },
-  { value: "2", label: "Exchanges co-located" },
+  { value: "India", label: "Primary market focus" },
+  { value: "NSE + BSE", label: "Planned exchange scope" },
+  { value: "Cash + F&O", label: "Intended segments" },
+  { value: "Pre-launch", label: "Current stage" },
 ];
 
 const offices = [
-  { city: "Mumbai", address: "One BKC, Bandra Kurla Complex, 400051", label: "Headquarters" },
-  { city: "GIFT City", address: "Signature Tower, Gandhinagar, 382355", label: "IFSC desk" },
-  { city: "Bengaluru", address: "Embassy Golflinks, 560071", label: "Engineering" },
-  { city: "Delhi NCR", address: "DLF Cyber City, Gurugram, 122002", label: "Client coverage" },
+  { city: "Mumbai", address: "Proposed base for market research and future operations", label: "Planned base" },
+  { city: "GIFT City", address: "Being evaluated for a future regulated presence", label: "Future option" },
+  { city: "Bengaluru", address: "Being evaluated for future engineering recruitment", label: "Future option" },
+  { city: "Delhi NCR", address: "Being evaluated for future institutional coverage", label: "Future option" },
 ];
 
 const About = () => {
@@ -74,8 +70,8 @@ const About = () => {
       <SieveNav />
       <PageHero
         kicker="About Sieve Capital"
-        title="Engineering alpha from noise in Indian markets"
-        intro="We are a Mumbai-headquartered team of quantitative researchers, systems engineers and data scientists building signal intelligence infrastructure for NSE and BSE participants."
+        title="Building toward Indian-market intelligence"
+        intro="Sieve Capital is a pre-launch initiative developing its research approach, technology and operating model for Indian markets. It is not yet conducting investment or client business."
       />
 
       <section className="py-16 md:py-20">
@@ -91,10 +87,9 @@ const About = () => {
               disclosures, results calls, IPO and SME documents, and global macro prints.
             </p>
             <p className="text-soft text-sm leading-relaxed">
-              Sieve Capital compresses the research timeline. We fuse satellite imagery over Indian
-              ports, plants and farmland with multilingual language models and market microstructure
-              data to deliver signals on Nifty, Bank Nifty, single stocks and commodities before the
-              move is fully priced.
+              Sieve Capital intends to combine alternative data, multilingual language models and
+              market-structure research to support future analysis of Nifty, Bank Nifty, individual
+              equities and commodities. This capability remains under development.
             </p>
           </div>
 
@@ -114,7 +109,7 @@ const About = () => {
 
       <section className="py-16 border-t border-border bg-secondary/40">
         <div className="container">
-          <p className="kicker mb-8">Leadership</p>
+          <p className="kicker mb-8">Proposed leadership structure</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {team.map((person, i) => (
               <motion.div
@@ -144,7 +139,7 @@ const About = () => {
 
       <section className="py-16 border-t border-border">
         <div className="container">
-          <p className="kicker mb-8">Timeline</p>
+          <p className="kicker mb-8">Development roadmap</p>
           <div className="border-t border-border max-w-3xl">
             {timeline.map((item, i) => (
               <motion.div
@@ -169,7 +164,7 @@ const About = () => {
 
       <section className="py-16 border-t border-border bg-secondary/40">
         <div className="container">
-          <p className="kicker mb-8">Offices</p>
+          <p className="kicker mb-8">Potential future locations</p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-border">
             {offices.map((office) => (
               <div key={office.city} className="bg-paper-raised p-6">
@@ -194,15 +189,15 @@ const About = () => {
               <a href="mailto:institutional@sieve.capital" className="text-bronze link-underline">
                 institutional@sieve.capital
               </a>
-              . Our team responds within one business day, Monday to Friday, IST.
+               . Enquiries will be reviewed during the development stage.
             </p>
           </div>
           <div>
             <p className="kicker mb-5">Careers</p>
             <h2 className="font-display text-2xl text-ink mb-4">Work at Sieve</h2>
             <p className="text-soft text-sm leading-relaxed">
-              We hire quantitative researchers, low-latency engineers and data scientists across
-              Mumbai, Bengaluru and GIFT City. Send your profile to{" "}
+               Future roles may include quantitative research, engineering and data science. To
+               express interest before hiring begins, send your profile to{" "}
               <a href="mailto:careers@sieve.capital" className="text-bronze link-underline">
                 careers@sieve.capital
               </a>

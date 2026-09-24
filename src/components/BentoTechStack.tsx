@@ -4,37 +4,37 @@ const pillars = [
   {
     label: "Primary & filings intelligence",
     title: "Exchange disclosure engine",
-    desc: "Continuous parsing of NSE and BSE corporate announcements, SEBI circulars, DRHP and RHP filings, shareholding patterns, bulk and block deal sheets, plus mainboard and SME IPO subscription data.",
+    desc: "Planned parsing of NSE and BSE announcements, SEBI circulars, DRHP and RHP filings, shareholding patterns, bulk and block deal sheets, plus mainboard and SME IPO subscription data.",
     facts: [
-      { k: "Filings parsed daily", v: "42,000" },
-      { k: "Announcement lag", v: "Sub-second" },
+      { k: "Coverage", v: "Filings + IPOs" },
+      { k: "Status", v: "In development" },
     ],
   },
   {
     label: "Language processing",
     title: "India-tuned financial models",
-    desc: "Transformer models fine-tuned on an Indian financial corpus score earnings calls, management commentary and business media in English, Hindi, Gujarati, Tamil and Marathi, alongside global newswires.",
+    desc: "The proposed models will assess earnings calls, management commentary and business media in English, Hindi, Gujarati, Tamil and Marathi, alongside relevant global news.",
     facts: [
       { k: "Languages", v: "5 + English wires" },
-      { k: "Sources", v: "147" },
+      { k: "Status", v: "In development" },
     ],
   },
   {
     label: "Market microstructure",
     title: "NSE & BSE order book intelligence",
-    desc: "Colocated infrastructure at NSE (BKC) and BSE reads tick-by-tick depth, F&O open interest build-up, option chain skew and India VIX surfaces across cash, index and stock derivatives.",
+    desc: "The architecture is intended to study market depth, F&O open-interest build-up, option-chain skew and India VIX surfaces across cash, index and stock derivatives. No colocation is currently active.",
     facts: [
-      { k: "Venues", v: "NSE, BSE, MCX, NCDEX" },
-      { k: "Colocation racks", v: "3 PoPs" },
+      { k: "Planned venues", v: "NSE + BSE" },
+      { k: "Connectivity", v: "Not yet live" },
     ],
   },
   {
     label: "Risk engineering",
     title: "Continuous exposure control",
-    desc: "A Monte Carlo risk engine simulates 10,000 scenarios per second, adjusting position sizing to India VIX regimes, expiry-day gamma, SEBI margin and position limits, and circuit-filter events.",
+    desc: "The planned risk engine will use scenario analysis to test position sizing against India VIX regimes, expiry-day gamma, SEBI limits and circuit-filter events.",
     facts: [
-      { k: "Scenarios / second", v: "10,000" },
-      { k: "System uptime", v: "99.97%" },
+      { k: "Approach", v: "Scenario based" },
+      { k: "Status", v: "In development" },
     ],
   },
 ];
@@ -46,7 +46,7 @@ const BentoTechStack = () => {
         <div className="max-w-2xl mb-14">
           <p className="kicker mb-4">Architecture</p>
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
-            Four engineering pillars behind every signal
+            Four engineering pillars under development
           </h2>
         </div>
 

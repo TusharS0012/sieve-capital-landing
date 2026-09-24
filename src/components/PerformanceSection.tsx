@@ -32,14 +32,14 @@ const PerformanceSection = () => {
     <section className="py-20 md:py-28 border-t border-border bg-secondary/40">
       <div className="container">
         <div className="max-w-2xl mb-14">
-          <p className="kicker mb-4">Track record</p>
+          <p className="kicker mb-4">Illustrative model</p>
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight mb-4">
-            Signal performance metrics
+            Example research-output presentation
           </h2>
           <p className="text-soft text-sm leading-relaxed">
-            Simulated performance based on live signal data across NSE cash and F&O segments. Past
-            performance does not guarantee future results. Figures are gross of transaction costs,
-            STT and statutory levies unless stated otherwise.
+            The figures below are fictional placeholders that demonstrate how research results may
+            be presented after development and validation. They are not actual, backtested or live
+            performance and do not represent a track record.
           </p>
         </div>
 
@@ -47,9 +47,9 @@ const PerformanceSection = () => {
           <div className="lg:col-span-7 panel p-6 md:p-8">
             <div className="flex items-baseline justify-between mb-8">
               <span className="text-[10px] uppercase tracking-[0.14em] text-soft font-semibold">
-                Monthly signal returns — FY 2025-26
+                Illustrative monthly scenario — not actual returns
               </span>
-              <span className="font-mono-data text-sm text-ink">Net +21.9%</span>
+              <span className="font-mono-data text-sm text-ink">Example only</span>
             </div>
             <div className="flex items-end gap-2 h-52 border-b border-border">
               {monthlyReturns.map((r, i) => {
@@ -87,7 +87,7 @@ const PerformanceSection = () => {
 
           <div className="lg:col-span-5 panel p-6 md:p-8">
             <span className="text-[10px] uppercase tracking-[0.14em] text-soft font-semibold block mb-6">
-              Key metrics
+              Illustrative metrics
             </span>
             <div className="grid grid-cols-2 gap-x-8 gap-y-7">
               {performanceStats.map((stat) => (
@@ -102,10 +102,9 @@ const PerformanceSection = () => {
         </div>
 
         <p className="text-[11px] text-soft mt-6 max-w-3xl leading-relaxed">
-          Disclaimer: simulated performance results have inherent limitations. No representation is
-          being made that any account will achieve similar profits or losses. Hypothetical trading
-          does not involve financial risk and cannot account for all factors affecting actual
-          trading, including impact cost, circuit limits and expiry-day liquidity on Indian venues.
+          Important: these values are interface examples, not results produced by Sieve Capital.
+          The firm is not currently managing capital, executing trades or offering investment
+          services. Any future testing will account for costs, liquidity and Indian market rules.
         </p>
       </div>
     </section>
