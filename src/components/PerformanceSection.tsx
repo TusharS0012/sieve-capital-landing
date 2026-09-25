@@ -16,13 +16,12 @@ const monthlyReturns = [
 ];
 
 const performanceStats = [
-  { label: "Annualised return", value: "34.2%", sub: "Net of fees, STT & charges" },
-  { label: "Sharpe ratio", value: "2.84", sub: "Since inception" },
-  { label: "Maximum drawdown", value: "-3.8%", sub: "Rolling 36 months" },
-  { label: "Win rate", value: "67.4%", sub: "Signal accuracy" },
-
-  { label: "Sortino ratio", value: "4.12", sub: "Downside adjusted" },
-  { label: "Calmar ratio", value: "9.0", sub: "Return / drawdown" },
+  { label: "Annualised return", value: "34.2%", sub: "Placeholder figure" },
+  { label: "Sharpe ratio", value: "2.84", sub: "Placeholder figure" },
+  { label: "Maximum drawdown", value: "-3.8%", sub: "Placeholder figure" },
+  { label: "Win rate", value: "67.4%", sub: "Placeholder figure" },
+  { label: "Sortino ratio", value: "4.12", sub: "Placeholder figure" },
+  { label: "Calmar ratio", value: "9.0", sub: "Placeholder figure" },
 ];
 
 const PerformanceSection = () => {
