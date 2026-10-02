@@ -1,17 +1,7 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 const CtaSection = () => {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) setSubmitted(true);
-  };
-
   return (
     <section className="py-20 md:py-28 bg-primary text-primary-foreground">
       <div className="container">
@@ -23,45 +13,23 @@ const CtaSection = () => {
         >
           <div className="lg:col-span-6">
             <p className="text-[11px] uppercase tracking-[0.16em] font-semibold text-primary-foreground/60 mb-5">
-              Request access
+              Pre-launch enquiries
             </p>
             <h2 className="font-display text-3xl md:text-4xl leading-tight mb-4">
-              Ready to collapse the latency?
+              A conversation for what comes next.
             </h2>
             <p className="text-primary-foreground/70 text-sm md:text-base leading-relaxed max-w-lg">
               Sieve is being built for SEBI-registered AIFs, PMS managers, mutual funds, proprietary
-              desks and family offices in India. We're currently in the building stage — leave your
-              email and we'll reach out the moment the platform opens for business.
+              desks and family offices in India. We are still developing the platform and are not
+              offering services yet. For future access enquiries, get in touch with our team.
             </p>
           </div>
 
           <div className="lg:col-span-6 lg:pl-10 lg:border-l lg:border-primary-foreground/15 w-full">
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                <Input
-                  type="email"
-                  placeholder="name@yourfirm.in"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 rounded-none bg-transparent border-primary-foreground/25 text-primary-foreground placeholder:text-primary-foreground/40"
-                  required
-                />
-                <Button
-                  type="submit"
-                  className="h-12 px-7 rounded-none bg-primary-foreground text-primary hover:bg-primary-foreground/90 shrink-0"
-                >
-                  Notify me at launch
-                </Button>
-              </form>
-            ) : (
-              <div className="border border-primary-foreground/25 p-6">
-                <p className="text-sm font-medium mb-1">You're on the list</p>
-                <p className="text-primary-foreground/70 text-sm">
-                  Sieve Capital is currently in the building stage. We'll notify you the moment
-                  access opens and we begin doing business.
-                </p>
-              </div>
-            )}
+            <Button asChild className="h-12 px-7 rounded-none bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+              <a href="mailto:institutional@sieve.capital?subject=Pre-launch%20enquiry">Email an enquiry</a>
+            </Button>
+            <p className="text-sm text-primary-foreground/70 mt-4">institutional@sieve.capital</p>
             <p className="text-[11px] text-primary-foreground/50 mt-5 tracking-wide">
               Pre-launch interest only · No services are currently being offered
             </p>

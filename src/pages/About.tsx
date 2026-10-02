@@ -7,37 +7,37 @@ const team = [
   {
     name: "XYZ",
     role: "Co-Founder & Chief Executive",
-    bg: "Former Head of Systematic Strategies, institutional equities desk, Mumbai. PhD Applied Mathematics, IIT Bombay.",
+    bg: "Proposed role overseeing research direction, institutional relationships and operating priorities.",
     focus: "Signal architecture",
   },
   {
     name: "XYZ",
     role: "Co-Founder & Chief Technology Officer",
-    bg: "Former Principal Engineer on low-latency market data systems. MSc Computer Science, IISc Bengaluru.",
+    bg: "Proposed role leading data architecture, engineering and platform security.",
     focus: "Infrastructure & ML",
   },
   {
     name: "XYZ",
     role: "Head of Research",
-    bg: "Former quantitative researcher covering Nifty and Bank Nifty derivatives. PhD Financial Econometrics, IGIDR Mumbai.",
+    bg: "Proposed role shaping Indian-market research methods and validation standards.",
     focus: "Risk & regime models",
   },
   {
     name: "XYZ",
     role: "Head of Language Models",
-    bg: "Former research scientist in multilingual NLP. MSc Computational Linguistics, IIIT Hyderabad.",
+    bg: "Proposed role exploring multilingual filings and news analysis.",
     focus: "Filings & news NLP",
   },
   {
     name: "XYZ",
     role: "Head of Execution",
-    bg: "Former VP Electronic Trading, NSE cash and F&O algo desk. MEng, IIT Kanpur.",
+    bg: "Proposed role evaluating future execution workflows and pre-trade controls, subject to approvals.",
     focus: "Execution algorithms",
   },
   {
     name: "XYZ",
     role: "Head of Geospatial",
-    bg: "Former senior analyst on port, plant and crop monitoring programmes. MSc Remote Sensing, IIT Roorkee.",
+    bg: "Proposed role assessing alternative-data sources and their research suitability.",
     focus: "Satellite intelligence",
   },
 ];
@@ -107,9 +107,10 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-16 border-t border-border bg-secondary/40">
+      <section className="py-16 border-t border-border bg-secondary/40" id="leadership">
         <div className="container">
           <p className="kicker mb-8">Proposed leadership structure</p>
+          <p className="text-soft text-sm mb-8 max-w-2xl">The roles below describe a possible future team structure. Names are placeholders; no individual credentials or appointments are represented here.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {team.map((person, i) => (
               <motion.div
@@ -137,7 +138,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-16 border-t border-border">
+      <section className="py-16 border-t border-border" id="contact">
         <div className="container">
           <p className="kicker mb-8">Development roadmap</p>
           <div className="border-t border-border max-w-3xl">

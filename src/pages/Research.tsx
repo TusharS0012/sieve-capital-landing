@@ -35,7 +35,7 @@ const Research = () => {
         intro="We plan to study the intersection of machine learning, Indian market microstructure and alternative data. The topics below are a proposed research agenda, not published work or investment research."
       />
 
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20" id="methodology">
         <div className="container">
           <p className="kicker mb-8">Methodology</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
@@ -49,7 +49,7 @@ const Research = () => {
         </div>
       </section>
 
-      <section className="py-16 border-t border-border bg-secondary/40">
+      <section className="py-16 border-t border-border bg-secondary/40" id="publications">
         <div className="container">
           <p className="kicker mb-8">Proposed research papers</p>
           <div className="border-t border-border">
@@ -80,7 +80,7 @@ const Research = () => {
         </div>
       </section>
 
-      <section className="py-16 border-t border-border">
+      <section className="py-16 border-t border-border" id="reports">
         <div className="container">
           <p className="kicker mb-8">Planned research reports</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">

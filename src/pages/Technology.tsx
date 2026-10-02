@@ -48,7 +48,7 @@ const Technology = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20" id="architecture">
         <div className="container">
           <p className="kicker mb-8">System architecture</p>
           <div className="border-t border-border">
@@ -81,14 +81,14 @@ const Technology = () => {
         </div>
       </section>
 
-      <section className="py-16 border-t border-border bg-secondary/40">
+      <section className="py-16 border-t border-border bg-secondary/40" id="infrastructure">
         <div className="container">
           <p className="kicker mb-8">Proposed infrastructure footprint</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
             {nodes.map((node) => (
               <div key={node.region} className="bg-paper-raised p-5">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className={`w-1.5 h-1.5 rounded-full ${node.status === "Primary" ? "bg-bronze" : node.status === "Active" ? "bg-primary/60" : "bg-muted-foreground/40"}`} />
+                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40" />
                   <span className="font-mono-data text-xs text-ink">{node.region}</span>
                 </div>
                 <p className="text-soft text-[11px] leading-snug">{node.location}</p>
