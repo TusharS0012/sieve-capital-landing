@@ -10,7 +10,7 @@ const stats = [
 
 const HeroSection = () => {
   return (
-    <section className="pt-32 pb-20 md:pt-44 md:pb-28">
+    <section className="pt-28 pb-16 md:pt-36 md:pb-20">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -21,8 +21,9 @@ const HeroSection = () => {
           <div className="lg:col-span-7">
             <p className="kicker mb-6">India Signal Intelligence Engine</p>
             <h1 className="font-display text-4xl md:text-6xl leading-[1.05] text-ink mb-6">
-              Building a faster path from information to insight.
+              Sieve Capital
             </h1>
+            <p className="font-display text-2xl md:text-3xl text-ink mb-6">Building a faster path from information to insight.</p>
             <p className="text-soft text-base md:text-lg leading-relaxed max-w-xl">
               Sieve Capital is developing an intelligence platform for Indian markets. It is
               intended to analyse NSE and BSE cash, F&amp;O, IPO and SME filings, RBI and SEBI

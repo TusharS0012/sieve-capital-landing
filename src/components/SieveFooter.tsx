@@ -4,25 +4,25 @@ const footerLinks = [
   {
     title: "Research",
     links: [
-      { label: "Methodology", href: "/research" },
-      { label: "Publications", href: "/research" },
-      { label: "Alpha Reports", href: "/research" },
+      { label: "Methodology", href: "/research#methodology" },
+      { label: "Proposed papers", href: "/research#publications" },
+      { label: "Planned reports", href: "/research#reports" },
     ],
   },
   {
     title: "Technology",
     links: [
       { label: "API Reference", href: "/api" },
-      { label: "Architecture", href: "/technology" },
-      { label: "Infrastructure", href: "/technology" },
+      { label: "Architecture", href: "/technology#architecture" },
+      { label: "Infrastructure", href: "/technology#infrastructure" },
     ],
   },
   {
     title: "Firm",
     links: [
       { label: "About", href: "/about" },
-      { label: "Careers", href: "/about" },
-      { label: "Contact", href: "/about" },
+      { label: "Verify a certificate", href: "/verify" },
+      { label: "Contact", href: "/about#contact" },
     ],
   },
 ];
