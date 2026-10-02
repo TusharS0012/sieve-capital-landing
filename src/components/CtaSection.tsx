@@ -27,9 +27,9 @@ const CtaSection = () => {
 
           <div className="lg:col-span-6 lg:pl-10 lg:border-l lg:border-primary-foreground/15 w-full">
             <Button asChild className="h-12 px-7 rounded-none bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-              <a href="mailto:institutional@sieve.capital?subject=Pre-launch%20enquiry">Email an enquiry</a>
+              <a href="mailto:founder@sievecapital.in?subject=Pre-launch%20enquiry">Email an enquiry</a>
             </Button>
-            <p className="text-sm text-primary-foreground/70 mt-4">institutional@sieve.capital</p>
+            <p className="text-sm text-primary-foreground/70 mt-4">founder@sievecapital.in</p>
             <p className="text-[11px] text-primary-foreground/50 mt-5 tracking-wide">
               Pre-launch interest only · No services are currently being offered
             </p>
